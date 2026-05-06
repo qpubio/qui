@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ToggleGroup } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Toggle Group",
+  title: "Components/Toggle Group",
   component: ToggleGroup,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof ToggleGroup>;

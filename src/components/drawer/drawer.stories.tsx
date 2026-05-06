@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Drawer } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Drawer",
+  title: "Components/Drawer",
   component: Drawer,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Drawer>;

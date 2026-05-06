@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Tooltip } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Tooltip",
+  title: "Components/Tooltip",
   component: Tooltip,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Tooltip>;

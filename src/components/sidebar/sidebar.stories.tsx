@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sidebar } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Sidebar",
+  title: "Components/Sidebar",
   component: Sidebar,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Sidebar>;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ScrollArea } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Scroll Area",
+  title: "Components/Scroll Area",
   component: ScrollArea,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof ScrollArea>;

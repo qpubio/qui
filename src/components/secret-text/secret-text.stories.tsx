@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { SecretText } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Secret Text",
+  title: "Components/Secret Text",
   component: SecretText,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof SecretText>;

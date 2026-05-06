@@ -52,12 +52,12 @@ for (const ent of fs.readdirSync(root, { withFileTypes: true })) {
     continue;
   }
 
-  const title = `UI/${dir
+  const title = `Components/${dir
     .split("-")
     .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
     .join(" ")}`;
 
-  const story = `import type { Meta, StoryObj } from "@storybook/react";
+  const story = `import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ${comp} } from "@qpub/qui";
 
 const meta = {

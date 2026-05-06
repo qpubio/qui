@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Popover } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Popover",
+  title: "Components/Popover",
   component: Popover,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Popover>;

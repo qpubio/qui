@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Code } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Code",
+  title: "Components/Code",
   component: Code,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Code>;

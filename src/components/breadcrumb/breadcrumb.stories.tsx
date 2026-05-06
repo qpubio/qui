@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Breadcrumb } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Breadcrumb",
+  title: "Components/Breadcrumb",
   component: Breadcrumb,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Breadcrumb>;

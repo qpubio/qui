@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Badge } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Badge",
+  title: "Components/Badge",
   component: Badge,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Badge>;

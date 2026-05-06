@@ -11,7 +11,7 @@ import {
 } from "@qpub/qui";
 
 const meta = {
-  title: "Primitives/Card",
+  title: "Components/Card",
   component: Card,
 } satisfies Meta<typeof Card>;
 

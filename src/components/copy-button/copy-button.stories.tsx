@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CopyButton } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Copy Button",
+  title: "Components/Copy Button",
   component: CopyButton,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof CopyButton>;

@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@qpub/qui";
 
 const meta = {
-  title: "Primitives/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: { control: "select" },

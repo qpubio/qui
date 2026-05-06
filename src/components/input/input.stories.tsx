@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Input } from "@qpub/qui";
 
 const meta = {
-  title: "Primitives/Input",
+  title: "Components/Input",
   component: Input,
 } satisfies Meta<typeof Input>;
 

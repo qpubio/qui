@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Table } from "@qpub/qui";
 
 const meta = {
-  title: "UI/Table",
+  title: "Components/Table",
   component: Table,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof Table>;
