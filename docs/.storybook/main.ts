@@ -9,7 +9,7 @@ const pkgRoot = path.resolve(dirname, "../..");
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.tsx"],
-  addons: ["@storybook/addon-essentials", "@storybook/addon-interactions"],
+  addons: ["@storybook/addon-docs"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
