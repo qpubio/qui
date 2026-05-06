@@ -13,9 +13,13 @@ npm install @qpub/qui
 Peer dependencies (install in the consuming app):
 
 - `react`, `react-dom`
-- `@radix-ui/react-slot`, `@radix-ui/react-label`
+- All Radix primitives referenced by the components you import (for example `@radix-ui/react-dialog`, `@radix-ui/react-select`, …); see `@qpub/qui` `peerDependencies` for the full set
 - `class-variance-authority`, `clsx`, `tailwind-merge`
 - `tailwindcss`, `tailwindcss-animate`
+
+Optional or feature-specific (install when you use command palette, date picker, etc.):
+
+- `lucide-react`, `cmdk`, `vaul`, `sonner`, `react-day-picker`, `react-resizable-panels`
 
 ## Tailwind consumers
 
@@ -53,9 +57,11 @@ See **Storybook**: `npm run dev` from this repo.
 
 ```bash
 npm install
+npm run typecheck
 npm run dev
 npm run build
 npm run lint
+npm run build-storybook
 ```
 
 ## License

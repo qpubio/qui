@@ -69,6 +69,20 @@ After `@qpub/qui` exposes `Button`, `Input`, `Card`, and `Label` (required by `I
 - **Class loss**: ensure Tailwind `content` includes the library `dist` output.
 - **Token drift**: diff your theme SCSS against `src/styles/globals.css` in `qui` if colors shift.
 
-## Later phases
+## Later phases — `@qpub/qui` vs app-only components
 
-Repeat install + codemod + delete for the remaining `components/ui/*` files as they move into `@qpub/qui`.
+Most shared `components/ui` modules are ported into `@qpub/qui`. **`Chart`** (Recharts wrappers), **`CodeHighlighter`** (Shiki syntax highlighting), **`CodeEditor`** (Monaco), **`ApiKeyDisplay`** (API key masking / copy UX), **Highcharts** charts, and **advanced multi-snippet / grouped code highlighters** stay in **`qpub-website`** / **`qpub-dashboard`** (or duplicated locally)—they are **not** exported from this package.
+
+**Breaking shifts when rewiring imports from app `components/ui`:**
+
+- **`Sidebar`**: Does not read a global Zustand sidebar store. Prefer `SidebarProvider` with optional controlled `open` / `onOpenChange`, or uncontrolled defaults.
+
+- **`Toaster`**: No `next-themes` coupling; pass **`theme`** (Sonner-compatible) where needed.
+
+Extend the codemod or replace imports explicitly; validate with **`npm install`** (matching peers), **`npm run build`**, and Storybook where applicable.
+
+---
+
+If you previously imported **`Chart*`**, **`CodeHighlighter*`**, **`CodeEditor*`**, **`CodeEditorProps`**, **`ApiKeyDisplay*`**, **`ApiKeyDisplayProps`**, **`LANGUAGE_DISPLAY_NAMES`**, **`LANGUAGE_ALIASES`**, **`SupportedLanguage`**, **`AdvancedChart*`**, **`AdvancedCodeHighlighter*`**, **`LanguageTabs`**, or **`AdvancedCodeHighlighterSyncProvider`** from **`@qpub/qui`**, use **`components/ui`** or a shared module inside each app instead.
+
+Repeat install + codemod + delete for the remaining `components/ui/*` files as they move into **`@qpub/qui`** where applicable.
