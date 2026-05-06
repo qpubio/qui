@@ -6,6 +6,12 @@
   :root {
     --radius: 0.75rem;
 
+    /* Font stacks: hooks for apps (e.g. next/font); defaults avoid bundling any font files */
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+
     --background: 1 0 0;
     --foreground: 0.2084 0.0025 247.95;
 

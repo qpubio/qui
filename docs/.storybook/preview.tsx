@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 
 import "../../src/styles/globals.css";
+import "./storybook-fonts.css";
 
 const preview: Preview = {
   decorators: [

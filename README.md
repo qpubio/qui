@@ -45,6 +45,17 @@ Import base variables once (adjust path if your bundler resolves CSS differently
 
 Override CSS variables in your own layer as needed.
 
+### Fonts
+
+This package does **not** ship font files or `@font-face` rules. You choose how fonts are loaded (`next/font`, `@fontsource/*`, CDN, self-hosted assets, etc.).
+
+The Tailwind preset maps `font-sans` / `font-mono` to CSS variables:
+
+- `--font-sans` — full sans `font-family` stack (comma-separated)
+- `--font-mono` — full monospace stack
+
+The published `globals.css` (`@import "@qpub/qui/globals.css"`) sets both to **system UI fallbacks** so components render correctly without extra setup. Override **`--font-sans`** / **`--font-mono`** on `:root` or `body` when you inject your own faces (for example map Geist from `next/font` into `--font-sans`; see [MIGRATION.md](./MIGRATION.md)).
+
 ## Usage
 
 ```tsx

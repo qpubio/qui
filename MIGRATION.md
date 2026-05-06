@@ -86,3 +86,22 @@ Extend the codemod or replace imports explicitly; validate with **`npm install`*
 If you previously imported **`Chart*`**, **`CodeHighlighter*`**, **`CodeEditor*`**, **`CodeEditorProps`**, **`ApiKeyDisplay*`**, **`ApiKeyDisplayProps`**, **`LANGUAGE_DISPLAY_NAMES`**, **`LANGUAGE_ALIASES`**, **`SupportedLanguage`**, **`AdvancedChart*`**, **`AdvancedCodeHighlighter*`**, **`LanguageTabs`**, or **`AdvancedCodeHighlighterSyncProvider`** from **`@qpub/qui`**, use **`components/ui`** or a shared module inside each app instead.
 
 Repeat install + codemod + delete for the remaining `components/ui/*` files as they move into **`@qpub/qui`** where applicable.
+
+## Font CSS variables (breaking)
+
+The Tailwind preset’s `font-sans` / `font-mono` utilities read **`--font-sans`** and **`--font-mono`** (defined with system fallbacks in `@qpub/qui/globals.css`).
+
+If you previously overrode **`--font-geist-sans`** / **`--font-geist-mono`**, rename those declarations:
+
+- `--font-geist-sans` → `--font-sans`
+- `--font-geist-mono` → `--font-mono`
+
+**Next.js `next/font`:** If your font loader exposes a class that sets something like `--font-geist-sans`, wire it into the new hooks, for example:
+
+```css
+:root {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+```
+
+(or configure the loader’s CSS variable name to **`--font-sans`** if your setup supports it.)
