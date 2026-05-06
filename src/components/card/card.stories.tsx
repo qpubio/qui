@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 
-import { Button, Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@qpub/qui";
+import {
+  Button,
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@qpub/qui";
 
 const meta = {
   title: "Primitives/Card",

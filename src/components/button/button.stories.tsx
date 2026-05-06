@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 
 import { Button } from "@qpub/qui";
 
@@ -26,15 +27,27 @@ export const AllVariantsMatrix: Story = {
   render: () => (
     <div className="flex flex-col gap-6 p-6 text-sm">
       {(
-        ["solid", "faded", "bordered", "light", "flat", "ghost", "link"] as const
+        [
+          "solid",
+          "faded",
+          "bordered",
+          "light",
+          "flat",
+          "ghost",
+          "link",
+        ] as const
       ).map((variant) => (
         <div key={variant} className="flex flex-wrap gap-2">
-          <span className="text-muted font-medium capitalize w-28">{variant}</span>
-          {(["default", "primary", "warning", "error"] as const).map((color) => (
-            <Button key={color} variant={variant} color={color} size="sm">
-              {color}
-            </Button>
-          ))}
+          <span className="text-muted font-medium capitalize w-28">
+            {variant}
+          </span>
+          {(["default", "primary", "warning", "error"] as const).map(
+            (color) => (
+              <Button key={color} variant={variant} color={color} size="sm">
+                {color}
+              </Button>
+            ),
+          )}
         </div>
       ))}
     </div>
