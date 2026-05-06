@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    --background: 1 0 0;
+    --foreground: 0.2084 0.0025 247.95;
+
+    --card: 1 0 0;
+    --card-foreground: 0 0 0;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0 0 0;
+    --popover-border: 0.907 0.0013 286.37;
+
+    --primary: 0.5677 0.2373 262.9;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.7554 0.1534 231.64;
+    --secondary-foreground: 1 0 0;
+
+    --muted: 0.5692 0.008 268.5;
+    --muted-foreground: 1 0 0;
+    --accent: 0.9614 0.0013 286.38;
+    --accent-foreground: 0 0 0;
+
+    --border: 0.907 0.0013 286.37;
+    --ring: 0.5677 0.2373 262.9;
+
+    --chart-1: 0.5677 0.2373 262.9;
+    --chart-2: 0.7554 0.1534 231.64;
+    --chart-3: 0.6311 0.2071 284.74;
+    --chart-4: 0.7539 0.160062 164.2728;
+    --chart-5: 0.8179 0.1703 77.9;
+    --chart-6: 0.6752 0.214 18.64;
+
+    --dialog: 0.9884 0.0013 286.38;
+
+    --sidebar: 0.9794 0.0013 286.38;
+    --sidebar-foreground: 0 0 0;
+    --sidebar-primary: 0.5677 0.2373 262.9;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.9614 0.0013 286.38;
+    --sidebar-accent-foreground: 0 0 0;
+    --sidebar-border: 0.907 0.0013 286.37;
+    --sidebar-ring: 0.5677 0.2373 262.9;
+
+    --info: 0.7663 0.130483 196.6605;
+    --info-foreground: 1 0 0;
+    --debug: 0.6311 0.2071 284.74;
+    --debug-foreground: 1 0 0;
+    --success: 0.7539 0.160062 164.2728;
+    --success-foreground: 1 0 0;
+    --warning: 0.8179 0.1703 77.9;
+    --warning-foreground: 1 0 0;
+    --error: 0.6752 0.214 18.64;
+    --error-foreground: 1 0 0;
+    --fatal: 0.5613 0.2248 17.67;
+    --fatal-foreground: 1 0 0;
+  }
+
+  html.dark,
+  [data-theme="dark"] {
+    --background: 0 0 0;
+    --foreground: 0.9461 0 0;
+
+    --card: 0 0 0;
+    --card-foreground: 1 0 0;
+
+    --popover: 0.2665 0.0092 285.76;
+    --popover-foreground: 1 0 0;
+    --popover-border: 0.3677 0.017 285.53;
+
+    --primary: 0.7252 0.1418 264.89;
+    --primary-foreground: 0 0 0;
+    --secondary: 0.8363 0.1146 222.28;
+    --secondary-foreground: 0 0 0;
+
+    --muted: 0.6806 0.0064 239.87;
+    --muted-foreground: 0 0 0;
+    --accent: 0.2059 0.0059 285.87;
+    --accent-foreground: 1 0 0;
+
+    --border: 0.2186 0.0039 286.08;
+    --ring: 0.7252 0.1418 264.89;
+
+    --chart-1: 0.7252 0.1418 264.89;
+    --chart-2: 0.8363 0.1146 222.28;
+    --chart-3: 0.7438 0.140683 288.5116;
+    --chart-4: 0.8455 0.1484 169.77;
+    --chart-5: 0.8867 0.105 79.22;
+    --chart-6: 0.721 0.1756 15.42;
+
+    --dialog: 0.1548 0.0021 286.15;
+
+    --sidebar: 0.1452 0.0021 286.13;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.488 0.243 264.376;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 0.2059 0.0059 285.87;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.2186 0.0039 286.08;
+    --sidebar-ring: 0.7252 0.1418 264.89;
+
+    --info: 0.9061 0.1383 196.69;
+    --info-foreground: 0 0 0;
+    --debug: 0.7438 0.140683 288.5116;
+    --debug-foreground: 0 0 0;
+    --success: 0.8455 0.1484 169.77;
+    --success-foreground: 0 0 0;
+    --warning: 0.8867 0.105 79.22;
+    --warning-foreground: 0 0 0;
+    --error: 0.721 0.1756 15.42;
+    --error-foreground: 0 0 0;
+    --fatal: 0.6519 0.2411 11.52;
+    --fatal-foreground: 0 0 0;
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "name": "@qpub/qui",
+  "version": "0.1.0",
+  "description": "QPub shared React UI primitives (shadcn-compatible, Tailwind + Radix)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qpub/qui"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./globals.css": "./dist/globals.css",
+    "./tailwind-preset": {
+      "types": "./dist/tailwind-preset.d.ts",
+      "import": "./dist/tailwind-preset.mjs",
+      "require": "./dist/tailwind-preset.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "MIGRATION.md"
+  ],
+  "overrides": {
+    "uuid": "^11.1.1",
+    "glob": "^13.0.6"
+  },
+  "scripts": {
+    "build": "tsup && node scripts/copy-static.mjs",
+    "dev": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 -c docs/.storybook",
+    "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 CI=true storybook build -c docs/.storybook -o docs/storybook-static",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19",
+    "@radix-ui/react-label": "^2",
+    "@radix-ui/react-slot": "^1",
+    "class-variance-authority": "^0.7",
+    "clsx": "^2",
+    "tailwind-merge": "^3",
+    "tailwindcss": "^3.4",
+    "tailwindcss-animate": "^1"
+  },
+  "devDependencies": {
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/node": "^22.15.17",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^9.39.3",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "postcss": "^8.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "^8.6.14",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "tsup": "^8.5.0",
+    "vite": "^6.4.1"
+  }
+}
