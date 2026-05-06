@@ -41,13 +41,23 @@ export const AllVariantsMatrix: Story = {
           <span className="text-muted font-medium capitalize w-28">
             {variant}
           </span>
-          {(["default", "primary", "warning", "error"] as const).map(
-            (color) => (
-              <Button key={color} variant={variant} color={color} size="sm">
-                {color}
-              </Button>
-            ),
-          )}
+          {(
+            [
+              "default",
+              "primary",
+              "secondary",
+              "info",
+              "debug",
+              "warning",
+              "success",
+              "error",
+              "fatal",
+            ] as const
+          ).map((color) => (
+            <Button key={color} variant={variant} color={color} size="sm">
+              {color}
+            </Button>
+          ))}
         </div>
       ))}
     </div>
