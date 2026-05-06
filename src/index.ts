@@ -11,7 +11,14 @@ export {
   AlertIcon,
   AlertTitle,
 } from "./components/alert/alert";
-export { Avatar, AvatarFallback, AvatarImage, avatarFallbackVariants, avatarImageVariants, avatarVariants } from "./components/avatar/avatar";
+export {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  avatarFallbackVariants,
+  avatarImageVariants,
+  avatarVariants,
+} from "./components/avatar/avatar";
 export { Badge, badgeVariants } from "./components/badge/badge";
 export { Checkbox, checkboxVariants } from "./components/checkbox/checkbox";
 export { Spinner, type SpinnerProps } from "./components/spinner/spinner";
