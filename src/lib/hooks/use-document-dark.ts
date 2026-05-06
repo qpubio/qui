@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 
 /** True when `document.documentElement` has class `dark`. */
