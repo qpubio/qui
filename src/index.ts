@@ -1,4 +1,4 @@
-export { cn } from "./lib/utils";
+"use client";
 
 export { useIsMobile } from "./lib/hooks/use-is-mobile";
 export { useMediaQuery } from "./lib/hooks/use-media-query";
@@ -63,13 +63,20 @@ export {
   selectTriggerVariants,
 } from "./components/select/select";
 export { Toggle, toggleVariants } from "./components/toggle/toggle";
-export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group/toggle-group";
+export {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "./components/toggle-group/toggle-group";
 export {
   Progress,
   progressVariants,
   progressIndicatorVariants,
 } from "./components/progress/progress";
-export { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./components/collapsible/collapsible";
+export {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./components/collapsible/collapsible";
 export {
   Popover,
   PopoverAnchor,
@@ -176,7 +183,11 @@ export {
   breadcrumbVariants,
 } from "./components/breadcrumb/breadcrumb";
 export { ScrollArea, ScrollBar } from "./components/scroll-area/scroll-area";
-export { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./components/resizable/resizable";
+export {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./components/resizable/resizable";
 export {
   Command,
   CommandDialog,
@@ -212,7 +223,10 @@ export {
   copyButtonVariants,
   type CopyButtonProps,
 } from "./components/copy-button/copy-button";
-export { SecretText, type SecretTextProps } from "./components/secret-text/secret-text";
+export {
+  SecretText,
+  type SecretTextProps,
+} from "./components/secret-text/secret-text";
 export { Toaster } from "./components/toaster/toaster";
 
 export {
@@ -268,7 +282,10 @@ export {
 } from "./components/card/card";
 
 export { Input, inputVariants } from "./components/input/input";
-export type { InputPaletteColor, InputVisualVariant } from "./components/input/input.types";
+export type {
+  InputPaletteColor,
+  InputVisualVariant,
+} from "./components/input/input.types";
 
 export { Label, labelVariants } from "./components/label/label";
 export type { LabelSize } from "./components/label/label.types";

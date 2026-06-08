@@ -31,6 +31,7 @@
   },
   "files": [
     "dist",
+    "scripts/qui-migrate-imports.mjs",
     "README.md",
     "LICENSE",
     "MIGRATION.md"
@@ -41,9 +42,10 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "tsup && node scripts/copy-static.mjs",
-    "dev": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 -c docs/.storybook",
+    "build": "tsup && tsup --config tsup.tailwind.config.ts && node scripts/copy-static.mjs",
+    "dev": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 -c docs/.storybook --host 127.0.0.1 --no-open --no-version-updates",
     "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 CI=true storybook build -c docs/.storybook -o docs/storybook-static",
+    "migrate-imports": "node scripts/qui-migrate-imports.mjs",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "npm run build"
   },

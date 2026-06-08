@@ -1,63 +1,17 @@
 import { defineConfig } from "tsup";
 
-const external = [
-  "react",
-  "react-dom",
-  "react/jsx-runtime",
-  "@radix-ui/react-avatar",
-  "@radix-ui/react-checkbox",
-  "@radix-ui/react-collapsible",
-  "@radix-ui/react-dialog",
-  "@radix-ui/react-dropdown-menu",
-  "@radix-ui/react-label",
-  "@radix-ui/react-navigation-menu",
-  "@radix-ui/react-popover",
-  "@radix-ui/react-progress",
-  "@radix-ui/react-radio-group",
-  "@radix-ui/react-scroll-area",
-  "@radix-ui/react-select",
-  "@radix-ui/react-separator",
-  "@radix-ui/react-slot",
-  "@radix-ui/react-tabs",
-  "@radix-ui/react-toggle",
-  "@radix-ui/react-toggle-group",
-  "@radix-ui/react-tooltip",
-  "class-variance-authority",
-  "clsx",
-  "tailwind-merge",
-  "lucide-react",
-  "cmdk",
-  "vaul",
-  "sonner",
-  "react-day-picker",
-  "react-resizable-panels",
-];
-
-export default defineConfig([
-  {
-    entry: ["src/index.ts"],
-    format: ["cjs", "esm"],
-    dts: true,
-    clean: true,
-    sourcemap: true,
-    treeshake: true,
-    splitting: false,
-    target: "es2022",
-    outDir: "dist",
-    esbuildOptions(options) {
-      options.jsx = "automatic";
-    },
-    external,
+export default defineConfig({
+  entry: { index: "src/index.ts" },
+  format: ["cjs", "esm"],
+  dts: true,
+  splitting: false,
+  sourcemap: true,
+  clean: true,
+  treeshake: true,
+  banner: {
+    js: '"use client";',
   },
-  {
-    entry: { "tailwind-preset": "tailwind.preset.ts" },
-    format: ["cjs", "esm"],
-    dts: true,
-    clean: false,
-    sourcemap: true,
-    outDir: "dist",
-    platform: "node",
-    banner: {},
-    external: ["tailwindcss", "tailwindcss-animate"],
+  outExtension({ format }) {
+    return { js: format === "esm" ? ".mjs" : ".js" };
   },
-]);
+});

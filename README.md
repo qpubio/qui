@@ -10,7 +10,11 @@ Using npm:
 npm install @qpub/qui
 ```
 
-Peer dependencies (install in the consuming app):
+**Peer vs bundled:** Anything in **`@qpub/qui` `peerDependencies`** is **not shipped inside** the published package. Your app installs React, Radix, Tailwind-related helpers, etc., so there is a single runtime copy and `qui` stays small. The library’s own **`devDependencies`** are only for building Storybook and `dist/` here.
+
+While migrating, **`--sync-peers`** on [`scripts/qui-migrate-imports.mjs`](./scripts/qui-migrate-imports.mjs) can add any missing peer packages to the app’s **`package.json`**—see [MIGRATION.md](./MIGRATION.md).
+
+Peer dependencies (must be installed in the consuming app; see **`@qpub/qui` `peerDependencies`** for exact ranges):
 
 - `react`, `react-dom`
 - All Radix primitives referenced by the components you import (for example `@radix-ui/react-dialog`, `@radix-ui/react-select`, …); see `@qpub/qui` `peerDependencies` for the full set
@@ -58,9 +62,13 @@ The published `globals.css` (`@import "@qpub/qui/globals.css"`) sets both to **s
 
 ## Usage
 
+Published output is a **single client bundle** (`"use client"` on `dist/index.mjs`). Import everything from **`@qpub/qui`**:
+
 ```tsx
 import { Button, Card, CardHeader, CardTitle, Input } from "@qpub/qui";
 ```
+
+In a Next.js app using **`file:../qui`**, set **`transpilePackages: ["@qpub/qui"]`** in **`next.config`**. This package does not export **`cn`** — add your own class helper in the app if needed.
 
 See **Storybook**: `npm run dev` from this repo.
 
@@ -75,8 +83,19 @@ npm run lint
 npm run build-storybook
 ```
 
-## License
+## Migrating an app (`components/ui` → `@qpub/qui`)
 
-MIT — see [LICENSE](./LICENSE).
+Use the published import codemod (see **[MIGRATION.md](./MIGRATION.md)** for peers, Tailwind, app-only widgets, delete list):
 
-For migrating existing apps off duplicated `components/ui`, see [MIGRATION.md](./MIGRATION.md).
+```bash
+# From the consuming app repo (adjust path):
+node ../qui/scripts/qui-migrate-imports.mjs --sync-peers           # dry-run: imports + deps
+node ../qui/scripts/qui-migrate-imports.mjs --sync-peers --write    # apply, then npm install
+
+# From this repo, pointing at the app:
+npm run migrate-imports -- --root /path/to/qpub-website --sync-peers --write
+```
+
+Without **`--write`**, the script prints diffs only. **`--sync-peers`** merges any missing **`@qpub/qui` peers** into the app’s **`dependencies`**.
+
+---
