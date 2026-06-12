@@ -1,6 +1,6 @@
 {
   "name": "@qpub/qui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "QPub shared React UI primitives (shadcn-compatible, Tailwind + Radix)",
   "license": "MIT",
   "repository": {
