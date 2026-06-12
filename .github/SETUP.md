@@ -24,3 +24,17 @@ git push origin v0.1.0
 ## CI
 
 Pushes and pull requests to `main` run typecheck, lint, and build on Node 18, 20, and 22.
+
+## Troubleshooting publish 404
+
+If the workflow signs provenance but fails with:
+
+```text
+npm error 404  '@qpub/qui@x.y.z' is not in this registry.
+```
+
+the package likely **does exist** — this is usually an auth/CLI issue, not a missing package:
+
+1. **npm version** — Trusted Publishing requires **npm ≥ 11.5.1**. The publish workflow uses Node **24.x** for this reason (Node 20 ships npm 10).
+2. **Trusted Publisher** — on npm, confirm repository is `qpubio/qui`, workflow is `publish.yml`, environment is blank.
+3. **Re-run** — after fixing, delete and re-push the tag or re-run the failed workflow.
