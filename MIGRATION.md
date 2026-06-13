@@ -62,7 +62,7 @@ The authoritative list lives in **`QUI_UI_STEMS`** in [`scripts/qui-migrate-impo
 2. **Tailwind**
    - Set **`presets: [require('@qpub/qui/tailwind-preset')]`** (or ESM equivalent).
    - Extend **`content`** with **`./node_modules/@qpub/qui/dist/**/\*.{js,mjs}`\*\* so classes used only inside the package still compile.
-   - Import design tokens once, e.g. **`@import "@qpub/qui/globals.css";`**, or keep your theme files if **CSS variable names** stay aligned with `qui` (`--primary`, `--error`, …).
+   - Import design tokens once, e.g. **`@import "@qpub/qui/globals.css";`**, or keep your theme files if **CSS variable names** stay aligned with `qui` (`--primary`, `--error`, …). See **[docs/theming.md](./docs/theming.md)** for overrides and dark mode.
 
 3. **Peer dependencies (why they still appear in _your_ app)**
 
@@ -152,7 +152,7 @@ Re-run **`node …/qui-migrate-imports.mjs`** if you temporarily keep a duplicat
 ## Behaviour differences vs-old app `components/ui`
 
 - **`Sidebar`**: Package sidebar does **not** read app-specific global stores (e.g. Zustand). Prefer **`SidebarProvider`** with **`open` / `onOpenChange`** or uncontrolled defaults.
-- **`Toaster`**: Package **`Toaster`** is not coupled to **`next-themes`**; pass **`theme`** when you need explicit Sonner theming.
+- **`Toaster`**: Package **`Toaster`** is not coupled to **`next-themes`**; pass **`theme`** when you need explicit Sonner theming. See **[docs/theming.md](./docs/theming.md#toaster)**.
 
 These are intentional; adjust call sites rather than forcing store coupling back into **`qui`**.
 
@@ -166,7 +166,7 @@ Older docs mentioned symbols like **`LANGUAGE_DISPLAY_NAMES`**, **`Chart*`**, **
 
 ## Font CSS variables (breaking)
 
-The Tailwind preset’s **`font-sans`** / **`font-mono`** utilities read **`--font-sans`** and **`--font-mono`** (see **`@qpub/qui/globals.css`**).
+The Tailwind preset’s **`font-sans`** / **`font-mono`** utilities read **`--font-sans`** and **`--font-mono`** (see **`@qpub/qui/globals.css`**). Full font setup: **[docs/theming.md](./docs/theming.md#fonts)**.
 
 If your app defined **`--font-geist-sans`** / **`--font-geist-mono`**, rename to:
 
