@@ -1,6 +1,6 @@
 # @qpub/qui
 
-Shared React primitives for QPub apps: **Tailwind CSS** tokens (shadcn-compatible), **CVA**, and **Radix** building blocks.
+React UI primitives for any React or Next.js project: **Tailwind CSS** tokens (shadcn-compatible), **CVA**, and **Radix** building blocks.
 
 ## Install
 
@@ -10,9 +10,9 @@ Using npm:
 npm install @qpub/qui
 ```
 
-**Peer vs bundled:** Anything in **`@qpub/qui` `peerDependencies`** is **not shipped inside** the published package. Your app installs React, Radix, Tailwind-related helpers, etc., so there is a single runtime copy and `qui` stays small. The library’s own **`devDependencies`** are only for building Storybook and `dist/` here.
+**Peer vs bundled:** Anything in **`@qpub/qui` `peerDependencies`** is **not shipped inside** the published package. Your app installs React, Radix, Tailwind-related helpers, etc., so there is a single runtime copy and `qui` stays small. The library’s own **`devDependencies`** are only for building Storybook and `dist/` in this repo.
 
-While migrating, **`--sync-peers`** on [`scripts/qui-migrate-imports.mjs`](./scripts/qui-migrate-imports.mjs) can add any missing peer packages to the app’s **`package.json`**—see [MIGRATION.md](./MIGRATION.md).
+While migrating from local `components/ui` shims, **`--sync-peers`** on the published codemod can add any missing peer packages to your app’s **`package.json`**—see [MIGRATION.md](./MIGRATION.md).
 
 Peer dependencies (must be installed in the consuming app; see **`@qpub/qui` `peerDependencies`** for exact ranges):
 
@@ -57,7 +57,7 @@ Published output is a **single client bundle** (`"use client"` on `dist/index.mj
 import { Button, Card, CardHeader, CardTitle, Input } from "@qpub/qui";
 ```
 
-In a Next.js app using **`file:../qui`**, set **`transpilePackages: ["@qpub/qui"]`** in **`next.config`**. This package does not export **`cn`** — add your own class helper in the app if needed.
+In a Next.js app, add **`transpilePackages: ["@qpub/qui"]`** in **`next.config`**. This package does not export **`cn`** — add your own class helper in the app if needed.
 
 See **Storybook**: `npm run dev` from this repo.
 
@@ -74,15 +74,11 @@ npm run build-storybook
 
 ## Migrating an app (`components/ui` → `@qpub/qui`)
 
-Use the published import codemod (see **[MIGRATION.md](./MIGRATION.md)** for peers, Tailwind, app-only widgets, delete list):
+Use the published import codemod (see **[MIGRATION.md](./MIGRATION.md)** for peers, Tailwind, app-only widgets, delete list). Run from your app root after **`npm install @qpub/qui`**:
 
 ```bash
-# From the consuming app repo (adjust path):
-node ../qui/scripts/qui-migrate-imports.mjs --sync-peers           # dry-run: imports + deps
-node ../qui/scripts/qui-migrate-imports.mjs --sync-peers --write    # apply, then npm install
-
-# From this repo, pointing at the app:
-npm run migrate-imports -- --root /path/to/qpub-website --sync-peers --write
+node node_modules/@qpub/qui/scripts/qui-migrate-imports.mjs --sync-peers           # dry-run: imports + deps
+node node_modules/@qpub/qui/scripts/qui-migrate-imports.mjs --sync-peers --write    # apply, then npm install
 ```
 
 Without **`--write`**, the script prints diffs only. **`--sync-peers`** merges any missing **`@qpub/qui` peers** into the app’s **`dependencies`**.
