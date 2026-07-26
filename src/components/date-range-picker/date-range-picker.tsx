@@ -75,7 +75,7 @@ function DropdownNav(props: DropdownNavProps) {
 }
 
 function Dropdown(props: DropdownProps) {
-  const { className, options, ...rest } = props;
+  const { className, options, classNames: _classNames, components: _components, ...rest } = props;
 
   return (
     <select

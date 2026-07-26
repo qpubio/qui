@@ -219,6 +219,10 @@ export {
 } from "./components/drawer/drawer";
 export { DateRangePicker } from "./components/date-range-picker/date-range-picker";
 export {
+  DateTimePicker,
+  type DateTimePickerProps,
+} from "./components/date-time-picker/date-time-picker";
+export {
   CopyButton,
   copyButtonVariants,
   type CopyButtonProps,
