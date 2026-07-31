@@ -52,7 +52,9 @@ export const WithAction: Story = {
           </Button>
         </CardAction>
       </CardHeader>
-      <CardContent className="text-sm text-muted">Email and push are enabled.</CardContent>
+      <CardContent className="text-sm text-muted">
+        Email and push are enabled.
+      </CardContent>
     </Card>
   ),
 };
@@ -60,7 +62,7 @@ export const WithAction: Story = {
 export const Composition: Story = {
   render: () => (
     <Card className="max-w-md">
-      <CardHeader className="border-b">
+      <CardHeader className="border-b border-border">
         <CardTitle>Deployments</CardTitle>
         <CardDescription>Last 3 releases</CardDescription>
         <CardAction>
@@ -83,7 +85,7 @@ export const Composition: Story = {
           <span className="text-muted">Archived</span>
         </div>
       </CardContent>
-      <CardFooter className="border-t justify-end gap-2">
+      <CardFooter className="border-t border-border justify-end gap-2">
         <Button size="sm" variant="ghost">
           History
         </Button>

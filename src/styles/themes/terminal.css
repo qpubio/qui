@@ -4,7 +4,7 @@
  * Opt-in via `data-appearance="terminal"` on <html> (or a scoped root).
  * Orthogonal to light/dark (`html.dark` / `[data-theme="dark"]`).
  *
- * Remaps chrome only (radius, mono typography, density, cursor/selection/ANSI).
+ * Remaps chrome only (radius, mono typography, density, cursor/selection/ANSI, shadows).
  * Brand colors (primary, status, surfaces) inherit from globals.css.
  *
  * Import after globals.css:
@@ -14,7 +14,7 @@
 
 /* Shared geometry + density (both schemes) — no brand color overrides */
 [data-appearance="terminal"] {
-  --radius: 0.125rem;
+  --radius: 0;
 
   --font-sans: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -27,6 +27,20 @@
   --density-gap: 0.5rem;
 
   --terminal-dim: 0.55;
+}
+
+/* Fully sharp chrome — Tailwind rounded-* still adds px when --radius is 0 */
+[data-appearance="terminal"],
+[data-appearance="terminal"] * {
+  border-radius: 0 !important;
+}
+
+/* Keep circular affordances (shape is the control, not chrome) */
+[data-appearance="terminal"] [data-slot="spinner"],
+[data-appearance="terminal"] [data-slot="radio-group-item"],
+[data-appearance="terminal"] [data-slot="radio-group-indicator"],
+[data-appearance="terminal"] [data-slot="radio-group-indicator"] * {
+  border-radius: 9999px !important;
 }
 
 [data-appearance="terminal"][data-density="compact"],
@@ -47,7 +61,6 @@
 :root[data-appearance="terminal"],
 [data-theme="light"][data-appearance="terminal"],
 [data-theme="light"] [data-appearance="terminal"] {
-  /* primary: 0.5677 0.2373 262.9 */
   --cursor: 0.5677 0.2373 262.9;
   --selection: 0.5677 0.2373 262.9;
   --selection-foreground: 1 0 0;
@@ -72,13 +85,11 @@
 
 /*
  * Dark cursor / selection / ANSI — brand-aligned (globals dark palette).
- * Covers html root and descendant appearance wrappers under a dark scheme.
  */
 html.dark[data-appearance="terminal"],
 html.dark [data-appearance="terminal"],
 [data-theme="dark"][data-appearance="terminal"],
 [data-theme="dark"] [data-appearance="terminal"] {
-  /* primary: 0.7252 0.1418 264.89 */
   --cursor: 0.7252 0.1418 264.89;
   --selection: 0.7252 0.1418 264.89;
   --selection-foreground: 0 0 0;
@@ -101,7 +112,20 @@ html.dark [data-appearance="terminal"],
   --ansi-bright-white: 1 0 0;
 }
 
-/* Density-aware geometry via data-slot */
+/* —— Slot chrome: shadows off, denser padding —— */
+
+[data-appearance="terminal"] [data-slot="card"] {
+  box-shadow: none;
+  gap: var(--density-gap);
+  padding-block: var(--density-pad);
+}
+
+[data-appearance="terminal"] [data-slot="card-header"],
+[data-appearance="terminal"] [data-slot="card-content"],
+[data-appearance="terminal"] [data-slot="card-footer"] {
+  padding-inline: var(--density-pad);
+}
+
 [data-density="compact"] [data-slot="card"],
 [data-appearance="terminal"][data-density="compact"] [data-slot="card"] {
   gap: var(--density-gap);
@@ -118,8 +142,57 @@ html.dark [data-appearance="terminal"],
   padding-inline: var(--density-pad);
 }
 
-[data-appearance="terminal"] [data-slot="card"] {
+[data-appearance="terminal"] [data-slot="dialog-content"],
+[data-appearance="terminal"] [data-slot="sheet-content"],
+[data-appearance="terminal"] [data-slot="drawer-content"] {
   box-shadow: none;
+  padding: var(--density-pad);
+}
+
+[data-appearance="terminal"] [data-slot="popover-content"],
+[data-appearance="terminal"] [data-slot="dropdown-menu-content"],
+[data-appearance="terminal"] [data-slot="dropdown-menu-sub-content"] {
+  box-shadow: none;
+  padding: var(--density-pad-sm);
+}
+
+[data-appearance="terminal"] [data-slot="select-content"],
+[data-appearance="terminal"] [data-slot="command"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="tooltip-content"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="alert"] {
+  padding: var(--density-pad-sm) var(--density-pad);
+}
+
+[data-appearance="terminal"] [data-slot="tabs-list"],
+[data-appearance="terminal"] [data-slot="tabs-indicator"],
+[data-appearance="terminal"] [data-slot="tabs-trigger"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="checkbox"],
+[data-appearance="terminal"] [data-slot="radio-group-item"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="sidebar"],
+[data-appearance="terminal"] [data-slot="sidebar-inset"] {
+  box-shadow: none;
+}
+
+[data-density="compact"] [data-slot="table-head"],
+[data-density="compact"] [data-slot="table-cell"],
+[data-appearance="terminal"][data-density="compact"] [data-slot="table-head"],
+[data-appearance="terminal"][data-density="compact"] [data-slot="table-cell"],
+[data-appearance="terminal"] [data-density="compact"] [data-slot="table-head"],
+[data-appearance="terminal"] [data-density="compact"] [data-slot="table-cell"] {
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
 }
 
 [data-appearance="terminal"] ::selection {

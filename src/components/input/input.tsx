@@ -26,9 +26,9 @@ const inputVariants = cva(
         fatal: "",
       },
       size: {
-        sm: "h-7 px-3 py-1 rounded-xs text-xs file:py-0 file:h-3.5 file:text-xs",
-        md: "h-9 px-3 py-1 rounded-xs text-sm file:h-6 file:text-sm",
-        lg: "h-12 px-3 py-2 rounded-xs text-base file:h-7 file:text-sm",
+        sm: "h-[var(--density-control-h-sm)] px-3 py-1 rounded-xs text-xs file:py-0 file:h-3.5 file:text-xs",
+        md: "h-[var(--density-control-h)] px-3 py-1 rounded-xs text-sm file:h-6 file:text-sm",
+        lg: "h-[var(--density-control-h-lg)] px-3 py-2 rounded-xs text-base file:h-7 file:text-sm",
       },
     },
     compoundVariants: [
@@ -100,9 +100,9 @@ const inputShellVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-7 px-2 rounded-xs text-xs",
-        md: "h-9 px-2.5 rounded-xs text-sm",
-        lg: "h-12 px-3 rounded-xs text-base",
+        sm: "h-[var(--density-control-h-sm)] px-2 rounded-xs text-xs",
+        md: "h-[var(--density-control-h)] px-2.5 rounded-xs text-sm",
+        lg: "h-[var(--density-control-h-lg)] px-3 rounded-xs text-base",
       },
     },
     defaultVariants: {

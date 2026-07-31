@@ -45,15 +45,18 @@ Scoped panels (portaled overlays still inherit from `<html>` unless you set attr
 
 Under `data-appearance="terminal"`:
 
-- Sharper `--radius`
+- Fully sharp corners (`--radius: 0` and `border-radius: 0`; radios/spinner stay circular)
 - Mono-first `--font-sans` (falls back to `--font-mono`)
-- Density variables for compact chrome
-- Card shadows reduced
+- Density variables (`--density-control-h*`, `--density-pad*`) for compact chrome
+- Control heights (Button, Input, Select, Tabs, Toggle) use those density vars
+- Soft shadows removed on cards, overlays, menus, tooltips, tabs, checkboxes via `data-slot` rules
 - ANSI 16 tokens (`--ansi-*`) plus `--cursor` / `--selection`, tone-matched to the brand palette
 
-**Brand colors are not remapped.** Primary, secondary, status (`info`…`fatal`), surfaces, and charts stay the same as the default appearance for the active light/dark scheme (`globals.css`). Terminal only changes chrome geometry, typography, density, and ANSI/cursor helpers.
+**Brand colors are not remapped.** Primary, secondary, status (`info`…`fatal`), surfaces, and charts stay the same as the default appearance for the active light/dark scheme (`globals.css`). Terminal only changes chrome geometry, typography, density, shadows, and ANSI/cursor helpers.
 
 Components keep using semantic utilities (`bg-background`, `text-success`, …).
+
+QA: Storybook **Themes / Terminal Appearance** gallery with toolbar Appearance × Density × Theme.
 
 ## New components
 

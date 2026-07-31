@@ -33,9 +33,9 @@ const buttonVariants = cva(
         fatal: "",
       },
       size: {
-        sm: "h-7 rounded-sm text-xs gap-1.5 px-3 has-[>svg]:px-2.5 [&_svg:not([class*='size-'])]:size-3.5",
-        md: "h-9 px-4 py-2 has-[>svg]:px-3 [&_svg:not([class*='size-'])]:size-4",
-        lg: "h-12 rounded-lg text-base px-6 has-[>svg]:px-4 [&_svg:not([class*='size-'])]:size-5",
+        sm: "h-[var(--density-control-h-sm)] rounded-sm text-xs gap-1.5 px-3 has-[>svg]:px-2.5 [&_svg:not([class*='size-'])]:size-3.5",
+        md: "h-[var(--density-control-h)] px-4 py-2 has-[>svg]:px-3 [&_svg:not([class*='size-'])]:size-4",
+        lg: "h-[var(--density-control-h-lg)] rounded-lg text-base px-6 has-[>svg]:px-4 [&_svg:not([class*='size-'])]:size-5",
       },
     },
     compoundVariants: [
@@ -415,9 +415,9 @@ function Button({
   // Generate icon-only classes based on size
   const iconOnlyClasses = isIconOnly
     ? {
-        sm: "size-7 px-0",
-        md: "size-9 px-0",
-        lg: "size-12 px-0",
+        sm: "size-[var(--density-control-h-sm)] px-0",
+        md: "size-[var(--density-control-h)] px-0",
+        lg: "size-[var(--density-control-h-lg)] px-0",
       }[size || "md"]
     : "";
 

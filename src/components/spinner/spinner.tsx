@@ -38,6 +38,7 @@ export interface SpinnerProps
 export function Spinner({ className, color, size, ...props }: SpinnerProps) {
   return (
     <div
+      data-slot="spinner"
       className={cn(spinnerVariants({ color, size }), className)}
       role="status"
       aria-label="Loading"
