@@ -25,8 +25,8 @@ const checkboxVariants = cva(
     "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
 
     // Validation
-    "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
-    "aria-invalid:border-destructive",
+    "aria-invalid:ring-error/20 dark:aria-invalid:ring-error/40",
+    "aria-invalid:border-error",
   ].join(" "),
   {
     variants: {

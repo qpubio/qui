@@ -49,7 +49,7 @@ const toggleVariants = cva(
         bordered: [
           "border-transparent bg-transparent",
           "hover:text-foreground hover:bg-transparent",
-          "data-[state=on]:border-popover-border data-[state=on]:dark:border-zinc-500 data-[state=on]:bg-transparent data-[state=on]:text-foreground",
+          "data-[state=on]:border-border data-[state=on]:bg-transparent data-[state=on]:text-foreground",
         ].join(" "),
       },
       size: {

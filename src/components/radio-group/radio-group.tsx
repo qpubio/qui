@@ -24,13 +24,13 @@ const radioGroupItemVariants = cva(
     "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
 
     // Validation
-    "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
-    "aria-invalid:border-destructive",
+    "aria-invalid:ring-error/20 dark:aria-invalid:ring-error/40",
+    "aria-invalid:border-error",
   ].join(" "),
   {
     variants: {
       variant: {
-        default: ["border-input text-primary", "dark:bg-input/30"].join(" "),
+        default: ["border-border text-primary", "dark:bg-muted/30"].join(" "),
         flat: ["border-transparent bg-foreground/20"].join(" "),
       },
       color: {

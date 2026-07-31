@@ -23,6 +23,7 @@
       "require": "./dist/index.js"
     },
     "./globals.css": "./dist/globals.css",
+    "./themes/terminal.css": "./dist/themes/terminal.css",
     "./tailwind-preset": {
       "types": "./dist/tailwind-preset.d.ts",
       "import": "./dist/tailwind-preset.mjs",
@@ -35,7 +36,8 @@
     "README.md",
     "LICENSE",
     "MIGRATION.md",
-    "docs/theming.md"
+    "docs/theming.md",
+    "docs/terminal.md"
   ],
   "overrides": {
     "uuid": "^11.1.1",

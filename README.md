@@ -47,7 +47,7 @@ Import base variables once (adjust path if your bundler resolves CSS differently
 @import "@qpub/qui/globals.css";
 ```
 
-**Theming:** token format, light/dark mode, `next-themes`, overrides, fonts, and component-specific notes — see **[docs/theming.md](./docs/theming.md)**.
+**Theming:** token format, light/dark mode, `next-themes`, overrides, fonts, and component-specific notes — see **[docs/theming.md](./docs/theming.md)**. Terminal appearance language — see **[docs/terminal.md](./docs/terminal.md)**.
 
 ## Usage
 

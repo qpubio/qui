@@ -87,7 +87,7 @@ const navigationMenuTriggerVariants = cva(
     // Typography
     "text-sm",
     // Base colors
-    "bg-transparent text-zinc-600 dark:text-zinc-400",
+    "bg-transparent text-muted",
     // Hover states
     "hover:bg-accent hover:text-accent-foreground dark:hover:text-accent-foreground",
     // Focus states

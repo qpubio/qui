@@ -31,7 +31,7 @@ function ToggleGroup({
           "rounded-md",
 
           // Visual
-          "border border-border dark:border-zinc-600",
+          "border border-border",
         ].join(" "),
         className
       )}
