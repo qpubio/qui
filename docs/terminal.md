@@ -46,7 +46,7 @@ Scoped panels (portaled overlays still inherit from `<html>` unless you set attr
 Under `data-appearance="terminal"`:
 
 - Fully sharp corners (`--radius: 0` and `border-radius: 0`; radios/spinner stay circular)
-- Mono-first `--font-sans` (falls back to `--font-mono`)
+- All UI text uses `--font-mono` (`--font-sans` remapped; `font-family` forced on the appearance root and descendants)
 - Density variables (`--density-control-h*`, `--density-pad*`) for compact chrome
 - Control heights (Button, Input, Select, Tabs, Toggle) use those density vars
 - Soft shadows removed on cards, overlays, menus, tooltips, tabs, checkboxes via `data-slot` rules

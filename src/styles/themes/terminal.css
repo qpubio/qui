@@ -13,11 +13,12 @@
  */
 
 /* Shared geometry + density (both schemes) — no brand color overrides */
+:root[data-appearance="terminal"],
 [data-appearance="terminal"] {
   --radius: 0;
 
-  --font-sans: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--font-mono);
+  font-family: var(--font-mono);
 
   --density-control-h: 2.25rem;
   --density-control-h-sm: 1.75rem;
@@ -29,10 +30,11 @@
   --terminal-dim: 0.55;
 }
 
-/* Fully sharp chrome — Tailwind rounded-* still adds px when --radius is 0 */
+/* Fully sharp chrome + mono everywhere — beat app/Storybook sans overrides */
 [data-appearance="terminal"],
 [data-appearance="terminal"] * {
   border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
 }
 
 /* Keep circular affordances (shape is the control, not chrome) */
