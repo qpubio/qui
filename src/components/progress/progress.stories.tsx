@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { Progress } from "@qpub/qui";
+import { Button, Progress } from "@qpub/qui";
 
 const colors = [
   "default",
@@ -85,6 +85,75 @@ export const Interactive: Story = {
           className="w-full"
         />
         <p className="text-sm text-muted">{value}%</p>
+      </div>
+    );
+  },
+};
+
+export const Task: Story = {
+  name: "Task (auto fill)",
+  render: function TaskStory() {
+    const [value, setValue] = useState(0);
+    const [running, setRunning] = useState(false);
+    const [direction, setDirection] = useState<1 | -1>(1);
+    const directionRef = useRef(direction);
+    directionRef.current = direction;
+
+    useEffect(() => {
+      if (!running) return;
+      const id = window.setInterval(() => {
+        setValue((prev) => {
+          const next = prev + directionRef.current * 2;
+          if (next >= 100) {
+            setDirection(-1);
+            return 100;
+          }
+          if (next <= 0) {
+            setDirection(1);
+            return 0;
+          }
+          return next;
+        });
+      }, 80);
+      return () => window.clearInterval(id);
+    }, [running]);
+
+    return (
+      <div className="flex max-w-md flex-col gap-3">
+        <Progress
+          value={value}
+          color={value >= 100 ? "success" : "primary"}
+        />
+        <p className="text-sm text-muted">
+          {value}% · {direction > 0 ? "incrementing" : "decrementing"}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            size="sm"
+            color="primary"
+            onClick={() => setRunning((r) => !r)}
+          >
+            {running ? "Pause" : "Start"}
+          </Button>
+          <Button
+            size="sm"
+            variant="bordered"
+            onClick={() => {
+              setRunning(false);
+              setValue(0);
+              setDirection(1);
+            }}
+          >
+            Reset
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => setDirection((d) => (d === 1 ? -1 : 1))}
+          >
+            Reverse
+          </Button>
+        </div>
       </div>
     );
   },

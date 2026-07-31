@@ -17,6 +17,22 @@ export const Default: Story = {
   },
 };
 
+export const SuccessFeedback: Story = {
+  name: "Success feedback",
+  render: () => (
+    <div className="flex max-w-sm flex-col gap-2">
+      <p className="text-sm text-muted">
+        Click to copy — icon and tooltip flip to Copied!, then reset.
+      </p>
+      <CopyButton
+        text="pnpm add @qpub/qui"
+        successDuration={1500}
+        isIconOnly={false}
+      />
+    </div>
+  ),
+};
+
 export const OverlayPositions: Story = {
   name: "Overlay positions",
   render: () => (

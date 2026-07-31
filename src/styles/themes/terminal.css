@@ -116,30 +116,6 @@ html.dark [data-appearance="terminal"],
 
 [data-appearance="terminal"] [data-slot="card"] {
   box-shadow: none;
-  gap: var(--density-gap);
-  padding-block: var(--density-pad);
-}
-
-[data-appearance="terminal"] [data-slot="card-header"],
-[data-appearance="terminal"] [data-slot="card-content"],
-[data-appearance="terminal"] [data-slot="card-footer"] {
-  padding-inline: var(--density-pad);
-}
-
-[data-density="compact"] [data-slot="card"],
-[data-appearance="terminal"][data-density="compact"] [data-slot="card"] {
-  gap: var(--density-gap);
-  padding-block: var(--density-pad);
-  box-shadow: none;
-}
-
-[data-density="compact"] [data-slot="card-header"],
-[data-density="compact"] [data-slot="card-content"],
-[data-density="compact"] [data-slot="card-footer"],
-[data-appearance="terminal"][data-density="compact"] [data-slot="card-header"],
-[data-appearance="terminal"][data-density="compact"] [data-slot="card-content"],
-[data-appearance="terminal"][data-density="compact"] [data-slot="card-footer"] {
-  padding-inline: var(--density-pad);
 }
 
 [data-appearance="terminal"] [data-slot="dialog-content"],

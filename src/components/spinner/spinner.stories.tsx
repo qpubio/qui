@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 
 import { Button, Spinner } from "@qpub/qui";
 
@@ -66,4 +67,41 @@ export const InButton: Story = {
       Saving…
     </Button>
   ),
+};
+
+export const AsyncAction: Story = {
+  name: "Async action",
+  render: function AsyncActionStory() {
+    const [state, setState] = useState<"idle" | "loading" | "done">("idle");
+
+    const onSave = () => {
+      if (state === "loading") return;
+      setState("loading");
+      window.setTimeout(() => setState("done"), 1500);
+    };
+
+    return (
+      <div className="flex flex-col items-start gap-3">
+        <Button
+          color={state === "done" ? "success" : "primary"}
+          isDisabled={state === "loading"}
+          onClick={state === "done" ? () => setState("idle") : onSave}
+        >
+          {state === "loading" ? (
+            <>
+              <Spinner size="sm" color="current" />
+              Saving…
+            </>
+          ) : state === "done" ? (
+            "Saved — click to reset"
+          ) : (
+            "Save"
+          )}
+        </Button>
+        <p className="text-sm text-muted">
+          Click Save to see the spinner during a short async action.
+        </p>
+      </div>
+    );
+  },
 };

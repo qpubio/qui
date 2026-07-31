@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const cardVariants = cva(
-  "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border py-6 shadow-sm",
+  "bg-card text-card-foreground flex flex-col gap-0 rounded-xl border border-border shadow-sm",
   {
     variants: {},
     defaultVariants: {},
@@ -14,7 +14,7 @@ const cardVariants = cva(
 );
 
 const cardHeaderVariants = cva(
-  "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+  "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-4 py-4 has-data-[slot=card-action]:grid-cols-[1fr_auto]",
   {
     variants: {},
     defaultVariants: {},
@@ -39,13 +39,13 @@ const cardActionVariants = cva(
   }
 );
 
-const cardContentVariants = cva("px-6", {
+const cardContentVariants = cva("px-4 py-4", {
   variants: {},
   defaultVariants: {},
 });
 
 const cardFooterVariants = cva(
-  "flex items-center px-6 [.border-t]:pt-6",
+  "flex items-center gap-2 px-4 py-4",
   {
     variants: {},
     defaultVariants: {},
