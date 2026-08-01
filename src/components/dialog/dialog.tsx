@@ -5,6 +5,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
 // Context to pass props to child components
@@ -16,15 +17,19 @@ interface DialogContextValue {
 const DialogContext = React.createContext<DialogContextValue>({});
 
 const dialogContentVariants = cva(
-  "bg-dialog fixed inset-0 z-50 m-auto grid w-full h-fit gap-4 rounded-lg border border-border p-6 shadow-lg duration-200",
+  cn(
+    "bg-dialog fixed inset-0 z-50 m-auto grid w-full h-fit gap-4 rounded-lg border border-border p-6",
+    chrome.elevationLg,
+    chrome.overlayMotion
+  ),
   {
     variants: {
       size: {
-        sm: "max-w-[calc(100%-2rem)] sm:max-w-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-        md: "max-w-[calc(100%-2rem)] sm:max-w-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-        lg: "max-w-[calc(100%-2rem)] sm:max-w-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-        xl: "max-w-[calc(100%-2rem)] sm:max-w-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-        full: "max-w-[calc(100%-2rem)] sm:max-w-[90vw] max-h-[90vh] overflow-auto data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+        sm: "max-w-[calc(100%-2rem)] sm:max-w-sm",
+        md: "max-w-[calc(100%-2rem)] sm:max-w-md",
+        lg: "max-w-[calc(100%-2rem)] sm:max-w-lg",
+        xl: "max-w-[calc(100%-2rem)] sm:max-w-xl",
+        full: "max-w-[calc(100%-2rem)] sm:max-w-[90vw] max-h-[90vh] overflow-auto",
         fullscreen: "max-w-full max-h-full h-full w-full m-0 rounded-none border-0 p-0",
       },
     },
@@ -80,8 +85,10 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 z-50 bg-background/90 backdrop-blur-sm backdrop-saturate-150",
-        size !== "fullscreen" && "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "fixed inset-0 z-50 bg-background/90",
+        chrome.scrimBlur,
+        chrome.scrimSaturate,
+        size !== "fullscreen" && chrome.overlayFade,
         className
       )}
       {...props}

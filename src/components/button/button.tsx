@@ -5,10 +5,15 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import type { ButtonPaletteColor, ButtonVisualVariant, IconOnlyButtonProps, RegularButtonProps } from "./button.types";
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all motion-safe:active:scale-[0.98] motion-safe:data-[state=open]:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-ring focus-visible:ring-[2px] focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-error aria-invalid:border-error",
+  cn(
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-ring focus-visible:ring-[2px] focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-error aria-invalid:border-error",
+    chrome.controlTransition,
+    chrome.buttonPress
+  ),
   {
     variants: {
       variant: {
@@ -19,7 +24,7 @@ const buttonVariants = cva(
         light: "hover:bg-muted/15",
         flat: "bg-muted/15 hover:bg-muted/10 hover:text-muted",
         ghost: "border border-foreground bg-background hover:bg-foreground hover:text-background",
-        link: "underline-offset-4 hover:underline motion-safe:active:scale-100 motion-safe:data-[state=open]:scale-100",
+        link: "underline-offset-4 hover:underline",
       },
       color: {
         default: "",

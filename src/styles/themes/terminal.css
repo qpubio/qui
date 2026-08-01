@@ -4,18 +4,26 @@
  * Opt-in via `data-appearance="terminal"` on <html> (or a scoped root).
  * Orthogonal to light/dark (`html.dark` / `[data-theme="dark"]`).
  *
- * Remaps chrome only (radius, mono typography, density, cursor/selection/ANSI, shadows).
- * Brand colors (primary, status, surfaces) inherit from globals.css.
+ * Remaps chrome only (radius, mono typography, density, cursor/selection/ANSI,
+ * shadows, motion, blur). Brand colors inherit from globals.css.
  *
  * Import after globals.css:
  *   @import "@qpub/qui/globals.css";
  *   @import "@qpub/qui/themes/terminal.css";
+ *
+ * For a smaller CSS/JS class surface, prefer `@qpub/qui/lite` + this file.
  */
 
 /* Shared geometry + density (both schemes) — no brand color overrides */
 :root[data-appearance="terminal"],
 [data-appearance="terminal"] {
   --radius: 0;
+  --radius-2xl: 0;
+  --radius-xl: 0;
+  --radius-lg: 0;
+  --radius-sm: 0;
+  --radius-xs: 0;
+  --radius-2xs: 0;
 
   --font-sans: var(--font-mono);
   font-family: var(--font-mono);
@@ -30,21 +38,6 @@
   --terminal-dim: 0.55;
 }
 
-/* Fully sharp chrome + mono everywhere — beat app/Storybook sans overrides */
-[data-appearance="terminal"],
-[data-appearance="terminal"] * {
-  border-radius: 0 !important;
-  font-family: var(--font-mono) !important;
-}
-
-/* Keep circular affordances (shape is the control, not chrome) */
-[data-appearance="terminal"] [data-slot="spinner"],
-[data-appearance="terminal"] [data-slot="radio-group-item"],
-[data-appearance="terminal"] [data-slot="radio-group-indicator"],
-[data-appearance="terminal"] [data-slot="radio-group-indicator"] * {
-  border-radius: 9999px !important;
-}
-
 [data-appearance="terminal"][data-density="compact"],
 [data-appearance="terminal"] [data-density="compact"] {
   --density-control-h: 1.75rem;
@@ -53,6 +46,29 @@
   --density-pad: 0.5rem;
   --density-pad-sm: 0.375rem;
   --density-gap: 0.375rem;
+}
+
+/*
+ * Motion kill-switch — terminal is prefers-reduced-motion-equivalent for the
+ * subtree (stronger than the OS setting). Instant open/close, no transitions.
+ */
+:root[data-appearance="terminal"],
+[data-appearance="terminal"],
+[data-appearance="terminal"] * {
+  animation: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Blur is expensive — opaque scrims only */
+[data-appearance="terminal"],
+[data-appearance="terminal"] * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 /*
@@ -114,10 +130,18 @@ html.dark [data-appearance="terminal"],
   --ansi-bright-white: 1 0 0;
 }
 
-/* —— Slot chrome: shadows off, denser padding —— */
+/* —— Slot chrome: shadows off, opaque overlays, denser padding —— */
 
 [data-appearance="terminal"] [data-slot="card"] {
   box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="dialog-overlay"],
+[data-appearance="terminal"] [data-slot="sheet-overlay"],
+[data-appearance="terminal"] [data-slot="drawer-overlay"] {
+  background-color: oklch(var(--background) / 0.95);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 [data-appearance="terminal"] [data-slot="dialog-content"],
@@ -176,11 +200,4 @@ html.dark [data-appearance="terminal"],
 [data-appearance="terminal"] ::selection {
   background-color: oklch(var(--selection) / 1);
   color: oklch(var(--selection-foreground) / 1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-appearance="terminal"] [data-slot="terminal-cursor"] {
-    animation: none !important;
-    opacity: 1;
-  }
 }

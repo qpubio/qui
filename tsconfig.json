@@ -13,7 +13,10 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "#chrome": ["./src/chrome/index.ts"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "tailwind.config.ts", "tailwind.preset.ts"],
   "exclude": ["dist", "node_modules", "docs", "**/*.stories.tsx"]

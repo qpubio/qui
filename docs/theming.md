@@ -94,7 +94,7 @@ Color **scheme** (light/dark) is orthogonal to **appearance** (default/terminal)
 <html class="dark" data-appearance="terminal" data-density="compact">
 ```
 
-See [terminal.md](./terminal.md) for tokens, new composites (`Terminal`, `Prompt`, `LogViewer`, …), and Storybook controls.
+See [terminal.md](./terminal.md) for tokens, performance mode (`@qpub/qui/lite` + motion kill-switch), new composites (`Terminal`, `Prompt`, `LogViewer`, …), and Storybook controls.
 
 Optional helpers: `AppearanceProvider`, `useAppearance` from `@qpub/qui`.
 

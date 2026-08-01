@@ -3,9 +3,12 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
-const spinnerVariants = cva("animate-spin rounded-full border-2", {
+const spinnerVariants = cva(
+  cn("rounded-full border-2", chrome.spinnerMotion),
+  {
   variants: {
     color: {
       default: "border-foreground/20 border-t-foreground",
@@ -29,7 +32,8 @@ const spinnerVariants = cva("animate-spin rounded-full border-2", {
     color: "default",
     size: "md",
   },
-});
+  }
+);
 
 export interface SpinnerProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "color">,

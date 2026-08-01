@@ -19,6 +19,7 @@ const config: StorybookConfig = {
       resolve: {
         alias: {
           "@qpub/qui": path.join(pkgRoot, "src/index.ts"),
+          "#chrome": path.join(pkgRoot, "src/chrome/index.ts"),
         },
       },
     });

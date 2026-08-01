@@ -5,15 +5,16 @@ import { useState, useCallback } from "react";
 import { Check, Copy } from "lucide-react";
 import { cva } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 import { Button } from "../button/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip/tooltip";
 
-const copyButtonVariants = cva("transition-all duration-200", {
+const copyButtonVariants = cva(chrome.copyMotion, {
   variants: {
     variant: {
       default: "",
-      overlay: "backdrop-blur-sm saturate-50 absolute",
+      overlay: cn(chrome.scrimBlur, "saturate-50 absolute"),
     },
     position: {
       "top-right": "top-1 right-1",

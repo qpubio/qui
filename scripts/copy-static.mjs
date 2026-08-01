@@ -17,7 +17,7 @@ await copyFile(
 );
 console.log("Copied src/styles/themes/terminal.css -> dist/themes/terminal.css");
 
-for (const name of ["index.mjs", "index.js"]) {
+for (const name of ["index.mjs", "index.js", "lite.mjs", "lite.js"]) {
   const file = join(dist, name);
   try {
     const body = await readFile(file, "utf8");

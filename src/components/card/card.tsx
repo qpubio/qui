@@ -3,10 +3,14 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
 const cardVariants = cva(
-  "bg-card text-card-foreground flex flex-col gap-0 rounded-xl border border-border shadow-sm",
+  cn(
+    "bg-card text-card-foreground flex flex-col gap-0 rounded-xl border border-border",
+    chrome.cardElevation
+  ),
   {
     variants: {},
     defaultVariants: {},
