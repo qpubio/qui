@@ -1,6 +1,6 @@
 {
   "name": "@qpub/qui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "QPub shared React UI primitives (shadcn-compatible, Tailwind + Radix)",
   "license": "MIT",
   "repository": {
@@ -43,6 +43,7 @@
     "scripts/qui-migrate-imports.mjs",
     "README.md",
     "LICENSE",
+    "CHANGELOG.md",
     "MIGRATION.md",
     "docs/theming.md",
     "docs/terminal.md"
