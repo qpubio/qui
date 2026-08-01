@@ -1,0 +1,203 @@
+/**
+ * Terminal appearance language for @qpub/qui.
+ *
+ * Opt-in via `data-appearance="terminal"` on <html> (or a scoped root).
+ * Orthogonal to light/dark (`html.dark` / `[data-theme="dark"]`).
+ *
+ * Remaps chrome only (radius, mono typography, density, cursor/selection/ANSI,
+ * shadows, motion, blur). Brand colors inherit from globals.css.
+ *
+ * Import after globals.css:
+ *   @import "@qpub/qui/globals.css";
+ *   @import "@qpub/qui/themes/terminal.css";
+ *
+ * For a smaller CSS/JS class surface, prefer `@qpub/qui/lite` + this file.
+ */
+
+/* Shared geometry + density (both schemes) — no brand color overrides */
+:root[data-appearance="terminal"],
+[data-appearance="terminal"] {
+  --radius: 0;
+  --radius-2xl: 0;
+  --radius-xl: 0;
+  --radius-lg: 0;
+  --radius-sm: 0;
+  --radius-xs: 0;
+  --radius-2xs: 0;
+
+  --font-sans: var(--font-mono);
+  font-family: var(--font-mono);
+
+  --density-control-h: 2.25rem;
+  --density-control-h-sm: 1.75rem;
+  --density-control-h-lg: 2.75rem;
+  --density-pad: 0.75rem;
+  --density-pad-sm: 0.5rem;
+  --density-gap: 0.5rem;
+
+  --terminal-dim: 0.55;
+}
+
+[data-appearance="terminal"][data-density="compact"],
+[data-appearance="terminal"] [data-density="compact"] {
+  --density-control-h: 1.75rem;
+  --density-control-h-sm: 1.5rem;
+  --density-control-h-lg: 2.25rem;
+  --density-pad: 0.5rem;
+  --density-pad-sm: 0.375rem;
+  --density-gap: 0.375rem;
+}
+
+/*
+ * Motion kill-switch — terminal is prefers-reduced-motion-equivalent for the
+ * subtree (stronger than the OS setting). Instant open/close, no transitions.
+ */
+:root[data-appearance="terminal"],
+[data-appearance="terminal"],
+[data-appearance="terminal"] * {
+  animation: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Blur is expensive — opaque scrims only */
+[data-appearance="terminal"],
+[data-appearance="terminal"] * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/*
+ * Light cursor / selection / ANSI — brand-aligned (globals light palette).
+ * Avoid :not([data-theme="dark"]) on bare [data-appearance] wrappers; that
+ * out-specifies dark descendant rules and broke Storybook dark+terminal.
+ */
+:root[data-appearance="terminal"],
+[data-theme="light"][data-appearance="terminal"],
+[data-theme="light"] [data-appearance="terminal"] {
+  --cursor: 0.5677 0.2373 262.9;
+  --selection: 0.5677 0.2373 262.9;
+  --selection-foreground: 1 0 0;
+
+  --ansi-black: 0.2084 0.0025 247.95;
+  --ansi-red: 0.6752 0.214 18.64;
+  --ansi-green: 0.7539 0.160062 164.2728;
+  --ansi-yellow: 0.8179 0.1703 77.9;
+  --ansi-blue: 0.5677 0.2373 262.9;
+  --ansi-magenta: 0.6311 0.2071 284.74;
+  --ansi-cyan: 0.7663 0.130483 196.6605;
+  --ansi-white: 0.5692 0.008 268.5;
+  --ansi-bright-black: 0.5692 0.008 268.5;
+  --ansi-bright-red: 0.5613 0.2248 17.67;
+  --ansi-bright-green: 0.7539 0.160062 164.2728;
+  --ansi-bright-yellow: 0.8179 0.1703 77.9;
+  --ansi-bright-blue: 0.5677 0.2373 262.9;
+  --ansi-bright-magenta: 0.6311 0.2071 284.74;
+  --ansi-bright-cyan: 0.7663 0.130483 196.6605;
+  --ansi-bright-white: 0.2084 0.0025 247.95;
+}
+
+/*
+ * Dark cursor / selection / ANSI — brand-aligned (globals dark palette).
+ */
+html.dark[data-appearance="terminal"],
+html.dark [data-appearance="terminal"],
+[data-theme="dark"][data-appearance="terminal"],
+[data-theme="dark"] [data-appearance="terminal"] {
+  --cursor: 0.7252 0.1418 264.89;
+  --selection: 0.7252 0.1418 264.89;
+  --selection-foreground: 0 0 0;
+
+  --ansi-black: 0.1452 0.0021 286.13;
+  --ansi-red: 0.721 0.1756 15.42;
+  --ansi-green: 0.8455 0.1484 169.77;
+  --ansi-yellow: 0.8867 0.105 79.22;
+  --ansi-blue: 0.7252 0.1418 264.89;
+  --ansi-magenta: 0.7438 0.140683 288.5116;
+  --ansi-cyan: 0.9061 0.1383 196.69;
+  --ansi-white: 0.9461 0 0;
+  --ansi-bright-black: 0.6806 0.0064 239.87;
+  --ansi-bright-red: 0.6519 0.2411 11.52;
+  --ansi-bright-green: 0.8455 0.1484 169.77;
+  --ansi-bright-yellow: 0.8867 0.105 79.22;
+  --ansi-bright-blue: 0.7252 0.1418 264.89;
+  --ansi-bright-magenta: 0.7438 0.140683 288.5116;
+  --ansi-bright-cyan: 0.9061 0.1383 196.69;
+  --ansi-bright-white: 1 0 0;
+}
+
+/* —— Slot chrome: shadows off, opaque overlays, denser padding —— */
+
+[data-appearance="terminal"] [data-slot="card"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="dialog-overlay"],
+[data-appearance="terminal"] [data-slot="sheet-overlay"],
+[data-appearance="terminal"] [data-slot="drawer-overlay"] {
+  background-color: oklch(var(--background) / 0.95);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-appearance="terminal"] [data-slot="dialog-content"],
+[data-appearance="terminal"] [data-slot="sheet-content"],
+[data-appearance="terminal"] [data-slot="drawer-content"] {
+  box-shadow: none;
+  padding: var(--density-pad);
+}
+
+[data-appearance="terminal"] [data-slot="popover-content"],
+[data-appearance="terminal"] [data-slot="dropdown-menu-content"],
+[data-appearance="terminal"] [data-slot="dropdown-menu-sub-content"] {
+  box-shadow: none;
+  padding: var(--density-pad-sm);
+}
+
+[data-appearance="terminal"] [data-slot="select-content"],
+[data-appearance="terminal"] [data-slot="command"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="tooltip-content"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="alert"] {
+  padding: var(--density-pad-sm) var(--density-pad);
+}
+
+[data-appearance="terminal"] [data-slot="tabs-list"],
+[data-appearance="terminal"] [data-slot="tabs-indicator"],
+[data-appearance="terminal"] [data-slot="tabs-trigger"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="checkbox"],
+[data-appearance="terminal"] [data-slot="radio-group-item"] {
+  box-shadow: none;
+}
+
+[data-appearance="terminal"] [data-slot="sidebar"],
+[data-appearance="terminal"] [data-slot="sidebar-inset"] {
+  box-shadow: none;
+}
+
+[data-density="compact"] [data-slot="table-head"],
+[data-density="compact"] [data-slot="table-cell"],
+[data-appearance="terminal"][data-density="compact"] [data-slot="table-head"],
+[data-appearance="terminal"][data-density="compact"] [data-slot="table-cell"],
+[data-appearance="terminal"] [data-density="compact"] [data-slot="table-head"],
+[data-appearance="terminal"] [data-density="compact"] [data-slot="table-cell"] {
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+}
+
+[data-appearance="terminal"] ::selection {
+  background-color: oklch(var(--selection) / 1);
+  color: oklch(var(--selection-foreground) / 1);
+}

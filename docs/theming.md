@@ -79,6 +79,25 @@ html.dark,
 
 Most components rely on semantic tokens and need no `dark:` classes. A few primitives add `dark:` tweaks for borders or invalid states; switching the root theme is enough for them to pick up new values.
 
+---
+
+## Appearance languages (terminal)
+
+Color **scheme** (light/dark) is orthogonal to **appearance** (default/terminal).
+
+```css
+@import "@qpub/qui/globals.css";
+@import "@qpub/qui/themes/terminal.css";
+```
+
+```html
+<html class="dark" data-appearance="terminal" data-density="compact">
+```
+
+See [terminal.md](./terminal.md) for tokens, performance mode (`@qpub/qui/lite` + motion kill-switch), new composites (`Terminal`, `Prompt`, `LogViewer`, …), and Storybook controls.
+
+Optional helpers: `AppearanceProvider`, `useAppearance` from `@qpub/qui`.
+
 ### `next-themes` (recommended for Next.js apps)
 
 ```tsx
@@ -201,6 +220,6 @@ Recharts, Monaco, Shiki, and similar libraries live in the **app** (`components/
 
 ## Storybook (this repo)
 
-Storybook uses `@storybook/addon-themes` with **`data-theme`** on the preview root (`docs/.storybook/preview.tsx`), which matches the `[data-theme="dark"]` block in `globals.css`. Geist fonts are loaded only in Storybook via `docs/.storybook/storybook-fonts.css` — they are not published with the package.
+Storybook uses `@storybook/addon-themes` with **`data-theme`** on the preview root (`docs/.storybook/preview.tsx`), which matches the `[data-theme="dark"]` block in `globals.css`. Additional toolbar controls set **`data-appearance`** and **`data-density`**. Geist fonts are loaded only in Storybook via `docs/.storybook/storybook-fonts.css` — they are not published with the package.
 
-Run `npm run dev` from this repo to preview components in light and dark.
+Run `npm run dev` from this repo to preview components across scheme × appearance × density.

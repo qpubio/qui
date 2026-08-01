@@ -142,7 +142,7 @@ function CommandShortcut({ className, ...props }: React.ComponentProps<"span">) 
   return (
     <span
       data-slot="command-shortcut"
-      className={cn("text-muted border border-border dark:border-zinc-600 rounded-xs px-1.5 py-0.5 ml-auto text-xs tracking-widest", className)}
+      className={cn("text-muted border border-border rounded-xs px-1.5 py-0.5 ml-auto text-xs tracking-widest", className)}
       {...props}
     />
   );

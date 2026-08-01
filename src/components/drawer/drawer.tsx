@@ -4,6 +4,7 @@ import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
 // Context to pass props to child components
@@ -25,12 +26,12 @@ interface DrawerContextValue {
 const DrawerContext = React.createContext<DrawerContextValue>({});
 
 const drawerOverlayVariants = cva(
-  "fixed inset-0 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+  cn("fixed inset-0 z-50", chrome.overlayFade),
   {
     variants: {
       variant: {
-        solid: "bg-background/90 backdrop-blur-sm backdrop-saturate-150",
-        bordered: "bg-background/80 backdrop-blur-sm",
+        solid: cn("bg-background/90", chrome.scrimBlur, chrome.scrimSaturate),
+        bordered: cn("bg-background/80", chrome.scrimBlur),
         flat: "bg-background/70",
         faded: "bg-background/60",
       },
@@ -42,7 +43,10 @@ const drawerOverlayVariants = cva(
 );
 
 const drawerContentVariants = cva(
-  "group/drawer-content bg-background fixed z-50 flex h-auto flex-col shadow-lg",
+  cn(
+    "group/drawer-content bg-background fixed z-50 flex h-auto flex-col",
+    chrome.elevationLg
+  ),
   {
     variants: {
       size: {

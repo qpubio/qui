@@ -65,9 +65,9 @@ const tabsListVariants = cva("flex items-center justify-center relative", {
       underline: "border-b border-border",
     },
     size: {
-      sm: "h-7",
-      md: "h-9",
-      lg: "h-12",
+      sm: "h-[var(--density-control-h-sm)]",
+      md: "h-[var(--density-control-h)]",
+      lg: "h-[var(--density-control-h-lg)]",
     },
   },
   compoundVariants: [
@@ -231,17 +231,17 @@ const tabsTriggerVariants = cva(
       {
         variant: "underline",
         size: "sm",
-        class: "h-7 -mb-[2px]",
+        class: "h-[var(--density-control-h-sm)] -mb-[2px]",
       },
       {
         variant: "underline",
         size: "md",
-        class: "h-9 -mb-[2px]",
+        class: "h-[var(--density-control-h)] -mb-[2px]",
       },
       {
         variant: "underline",
         size: "lg",
-        class: "h-12 -mb-[2px]",
+        class: "h-[var(--density-control-h-lg)] -mb-[2px]",
       },
     ],
     defaultVariants: {

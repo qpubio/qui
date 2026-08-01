@@ -49,13 +49,13 @@ const toggleVariants = cva(
         bordered: [
           "border-transparent bg-transparent",
           "hover:text-foreground hover:bg-transparent",
-          "data-[state=on]:border-popover-border data-[state=on]:dark:border-zinc-500 data-[state=on]:bg-transparent data-[state=on]:text-foreground",
+          "data-[state=on]:border-border data-[state=on]:bg-transparent data-[state=on]:text-foreground",
         ].join(" "),
       },
       size: {
-        sm: "h-8 px-1.5 min-w-8 text-xs [&_svg:not([class*='size-'])]:size-3.5",
-        md: "h-9 px-2 min-w-9 text-sm [&_svg:not([class*='size-'])]:size-4",
-        lg: "h-10 px-2.5 min-w-10 text-base [&_svg:not([class*='size-'])]:size-5",
+        sm: "h-[var(--density-control-h-sm)] px-1.5 min-w-[var(--density-control-h-sm)] text-xs [&_svg:not([class*='size-'])]:size-3.5",
+        md: "h-[var(--density-control-h)] px-2 min-w-[var(--density-control-h)] text-sm [&_svg:not([class*='size-'])]:size-4",
+        lg: "h-[var(--density-control-h-lg)] px-2.5 min-w-[var(--density-control-h-lg)] text-base [&_svg:not([class*='size-'])]:size-5",
       },
     },
     defaultVariants: {

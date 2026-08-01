@@ -5,31 +5,21 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { chrome } from "#chrome";
 import { cn } from "../../lib/utils";
 
 const dropdownMenuContentVariants = cva(
-  [
-    // Base styles
+  cn(
     "bg-popover text-foreground",
-    "rounded-md border border-popover-border p-1 shadow-lg",
+    "rounded-md border border-popover-border p-1",
+    chrome.elevationLg,
     "z-50 min-w-[8rem]",
-    
-    // Layout
     "max-h-(--radix-dropdown-menu-content-available-height)",
     "origin-(--radix-dropdown-menu-content-transform-origin)",
     "overflow-x-hidden overflow-y-auto",
-    
-    // Animations
-    "data-[state=open]:animate-in data-[state=closed]:animate-out",
-    "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-    "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-    
-    // Slide animations
-    "data-[side=bottom]:slide-in-from-top-2",
-    "data-[side=left]:slide-in-from-right-2",
-    "data-[side=right]:slide-in-from-left-2",
-    "data-[side=top]:slide-in-from-bottom-2",
-  ].join(" "),
+    chrome.overlayMotion,
+    chrome.overlaySlide
+  ),
   {
     variants: {},
     defaultVariants: {},
@@ -191,27 +181,16 @@ const dropdownMenuSubTriggerVariants = cva(
 );
 
 const dropdownMenuSubContentVariants = cva(
-  [
-    // Base styles
+  cn(
     "bg-popover text-popover-foreground",
-    "rounded-md border border-border p-1 shadow-lg",
+    "rounded-md border border-border p-1",
+    chrome.elevationLg,
     "z-50 min-w-[8rem]",
-    
-    // Layout
     "origin-(--radix-dropdown-menu-content-transform-origin)",
     "overflow-hidden",
-    
-    // Animations
-    "data-[state=open]:animate-in data-[state=closed]:animate-out",
-    "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-    "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-    
-    // Slide animations
-    "data-[side=bottom]:slide-in-from-top-2",
-    "data-[side=left]:slide-in-from-right-2",
-    "data-[side=right]:slide-in-from-left-2",
-    "data-[side=top]:slide-in-from-bottom-2",
-  ].join(" "),
+    chrome.overlayMotion,
+    chrome.overlaySlide
+  ),
   {
     variants: {},
     defaultVariants: {},

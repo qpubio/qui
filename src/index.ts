@@ -3,6 +3,13 @@
 export { useIsMobile } from "./lib/hooks/use-is-mobile";
 export { useMediaQuery } from "./lib/hooks/use-media-query";
 export { useDocumentDark } from "./lib/hooks/use-document-dark";
+export {
+  AppearanceProvider,
+  useAppearance,
+  type Appearance,
+  type AppearanceState,
+  type Density,
+} from "./lib/hooks/use-appearance";
 
 export {
   Alert,
@@ -44,6 +51,42 @@ export {
 } from "./components/table/table";
 export { Code, codeVariants } from "./components/code/code";
 export type { CodeProps } from "./components/code/code";
+export { Kbd, kbdVariants, type KbdProps } from "./components/kbd/kbd";
+export {
+  Terminal,
+  TerminalTitleBar,
+  TerminalBody,
+  TerminalCursor,
+  terminalVariants,
+  terminalTitleBarVariants,
+  type TerminalProps,
+  type TerminalTitleBarProps,
+} from "./components/terminal/terminal";
+export { Prompt, promptVariants, type PromptProps } from "./components/prompt/prompt";
+export {
+  StatusBar,
+  StatusBarSegment,
+  StatusBarSpacer,
+  statusBarVariants,
+  statusBarSegmentVariants,
+  type StatusBarProps,
+  type StatusBarSegmentProps,
+} from "./components/status-bar/status-bar";
+export {
+  LogViewer,
+  LogLine,
+  logViewerVariants,
+  logLineVariants,
+  type LogViewerProps,
+  type LogLineProps,
+  type LogLineData,
+  type LogLevel,
+} from "./components/log-viewer/log-viewer";
+export {
+  AnsiText,
+  stripAnsi,
+  type AnsiTextProps,
+} from "./components/ansi-text/ansi-text";
 export {
   RadioGroup,
   RadioGroupItem,
@@ -218,6 +261,10 @@ export {
   drawerTitleVariants,
 } from "./components/drawer/drawer";
 export { DateRangePicker } from "./components/date-range-picker/date-range-picker";
+export {
+  DateTimePicker,
+  type DateTimePickerProps,
+} from "./components/date-time-picker/date-time-picker";
 export {
   CopyButton,
   copyButtonVariants,

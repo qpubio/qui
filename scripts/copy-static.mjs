@@ -9,7 +9,15 @@ await mkdir(dist, { recursive: true });
 await copyFile(join(root, "src/styles/globals.css"), join(dist, "globals.css"));
 console.log("Copied src/styles/globals.css -> dist/globals.css");
 
-for (const name of ["index.mjs", "index.js"]) {
+const themesDist = join(dist, "themes");
+await mkdir(themesDist, { recursive: true });
+await copyFile(
+  join(root, "src/styles/themes/terminal.css"),
+  join(themesDist, "terminal.css")
+);
+console.log("Copied src/styles/themes/terminal.css -> dist/themes/terminal.css");
+
+for (const name of ["index.mjs", "index.js", "lite.mjs", "lite.js"]) {
   const file = join(dist, name);
   try {
     const body = await readFile(file, "utf8");
