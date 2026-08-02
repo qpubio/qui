@@ -1,6 +1,6 @@
 # Migrating apps to `@qpub/qui`
 
-Targets: **`qpub-website`** and **`qpub-dashboard`** (paths below are relative to each app’s repo root).
+Targets: **`qpub-website`** and **`qpub-cloud`** (paths below are relative to each app’s repo root).
 
 This package is intended to replace the bulk of duplicated **`components/ui/*`** primitives. **`@qpub/qui`** ships as **one client bundle** (`dist/index.mjs` / `dist/index.js` with `"use client"` at the top). Import components from that entry only — do not deep-import paths under **`dist/`**.
 
@@ -160,7 +160,7 @@ These are intentional; adjust call sites rather than forcing store coupling back
 
 ## Symbols that are not part of `@qpub/qui`
 
-Older docs mentioned symbols like **`LANGUAGE_DISPLAY_NAMES`**, **`Chart*`**, **`CodeHighlighter*`**, etc. Those **were not** migrated through this barrel; **`qpub-website` / `qpub-dashboard`** should keep importing them from **`@/components/ui/...`** or local modules—not from **`@qpub/qui`**—unless you add them to **`qui`** on purpose.
+Older docs mentioned symbols like **`LANGUAGE_DISPLAY_NAMES`**, **`Chart*`**, **`CodeHighlighter*`**, etc. Those **were not** migrated through this barrel; **`qpub-website` / `qpub-cloud`** should keep importing them from **`@/components/ui/...`** or local modules—not from **`@qpub/qui`**—unless you add them to **`qui`** on purpose.
 
 ---
 
