@@ -12,7 +12,10 @@ import { Label } from "../label/label";
 const selectTriggerVariants = cva(
   [
     // Layout
-    "flex w-full min-w-0 items-center justify-between gap-2",
+    "flex w-full min-w-0 items-center justify-between gap-2 overflow-hidden",
+
+    // Value truncation — Radix mirrors ItemText into SelectValue
+    "[&_[data-slot=select-value]]:min-w-0 [&_[data-slot=select-value]]:flex-1 [&_[data-slot=select-value]]:truncate",
 
     // Visual
     "border bg-transparent rounded-xs",
@@ -252,8 +255,17 @@ function SelectGroup({ ...props }: React.ComponentProps<typeof SelectPrimitive.G
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
-function SelectValue({ ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
+function SelectValue({
+  className,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Value>) {
+  return (
+    <SelectPrimitive.Value
+      data-slot="select-value"
+      className={cn("min-w-0 flex-1 truncate", className)}
+      {...props}
+    />
+  );
 }
 
 function SelectTrigger({

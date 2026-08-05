@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-08-05
+
+### Fixed
+
+- Select trigger overflow: long `SelectValue` text now truncates inside the trigger; chevron stays within the border
+
 ## [0.2.0] - 2026-08-01
 
 ### Added
@@ -31,5 +37,6 @@
 - npm Trusted Publishing (Node 24, `.npmrc` auth cleanup)
 - Client-boundary `"use client"` coverage for Next.js
 
+[0.2.1]: https://github.com/qpubio/qui/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/qpubio/qui/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/qpubio/qui/compare/646415f...v0.1.1
