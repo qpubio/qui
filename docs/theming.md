@@ -1,6 +1,6 @@
 # Theming
 
-`@qpub/qui` uses **CSS custom properties** as the single source of truth for colors, radius, and fonts. Components consume tokens through Tailwind utilities (`bg-primary`, `text-muted-foreground`, …), not hard-coded values.
+`@qpub/qui` uses **CSS custom properties** as the single source of truth for colors, radius, and fonts. Components consume tokens through Tailwind utilities (`bg-primary`, `text-muted`, …), not hard-coded values.
 
 ---
 
@@ -48,18 +48,18 @@ The Tailwind preset maps each token to `oklch(var(--primary) / <alpha-value>)`, 
 
 ## Token groups
 
-| Group | Variables | Tailwind examples |
-| --- | --- | --- |
-| **Base** | `--background`, `--foreground` | `bg-background`, `text-foreground` |
-| **Surfaces** | `--card`, `--card-foreground`, `--popover`, `--popover-foreground`, `--popover-border`, `--dialog` | `bg-card`, `bg-popover`, `border-popover-border` |
-| **Brand** | `--primary`, `--primary-foreground`, `--secondary`, `--secondary-foreground` | `bg-primary`, `text-primary-foreground` |
-| **State** | `--muted`, `--muted-foreground`, `--accent`, `--accent-foreground` | `bg-muted`, `text-accent-foreground` |
-| **Interaction** | `--border`, `--ring` | `border-border`, `ring-ring` |
-| **Charts** | `--chart-1` … `--chart-6` | `fill-chart-1`, `stroke-chart-3` |
-| **Sidebar** | `--sidebar`, `--sidebar-foreground`, `--sidebar-primary`, … | `bg-sidebar`, `text-sidebar-foreground` |
-| **Status** | `--info`, `--debug`, `--success`, `--warning`, `--error`, `--fatal` (+ `-foreground` each) | `bg-success`, `text-error-foreground` |
-| **Layout** | `--radius` | `rounded-md` (derived sizes in preset) |
-| **Fonts** | `--font-sans`, `--font-mono` | `font-sans`, `font-mono` |
+| Group           | Variables                                                                                          | Tailwind examples                                |
+| --------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **Base**        | `--background`, `--foreground`                                                                     | `bg-background`, `text-foreground`               |
+| **Surfaces**    | `--card`, `--card-foreground`, `--popover`, `--popover-foreground`, `--popover-border`, `--dialog` | `bg-card`, `bg-popover`, `border-popover-border` |
+| **Brand**       | `--primary`, `--primary-foreground`, `--secondary`, `--secondary-foreground`                       | `bg-primary`, `text-primary-foreground`          |
+| **State**       | `--muted`, `--muted-foreground`, `--accent`, `--accent-foreground`                                 | `bg-muted`, `text-accent-foreground`             |
+| **Interaction** | `--border`, `--ring`                                                                               | `border-border`, `ring-ring`                     |
+| **Charts**      | `--chart-1` … `--chart-6`                                                                          | `fill-chart-1`, `stroke-chart-3`                 |
+| **Sidebar**     | `--sidebar`, `--sidebar-foreground`, `--sidebar-primary`, …                                        | `bg-sidebar`, `text-sidebar-foreground`          |
+| **Status**      | `--info`, `--debug`, `--success`, `--warning`, `--error`, `--fatal` (+ `-foreground` each)         | `bg-success`, `text-error-foreground`            |
+| **Layout**      | `--radius`                                                                                         | `rounded-md` (derived sizes in preset)           |
+| **Fonts**       | `--font-sans`, `--font-mono`                                                                       | `font-sans`, `font-mono`                         |
 
 Default light and dark values live in [`src/styles/globals.css`](../src/styles/globals.css).
 
@@ -91,7 +91,7 @@ Color **scheme** (light/dark) is orthogonal to **appearance** (default/terminal)
 ```
 
 ```html
-<html class="dark" data-appearance="terminal" data-density="compact">
+<html class="dark" data-appearance="terminal" data-density="compact"></html>
 ```
 
 See [terminal.md](./terminal.md) for tokens, performance mode (`@qpub/qui/lite` + motion kill-switch), new composites (`Terminal`, `Prompt`, `LogViewer`, …), and Storybook controls.
@@ -103,9 +103,14 @@ Optional helpers: `AppearanceProvider`, `useAppearance` from `@qpub/qui`.
 ```tsx
 import { ThemeProvider } from "next-themes";
 
-<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+<ThemeProvider
+  attribute="class"
+  defaultTheme="system"
+  enableSystem
+  disableTransitionOnChange
+>
   {children}
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 Use **`attribute="class"`** so `next-themes` toggles the `dark` class on `<html>`, matching the preset and `globals.css`.
@@ -168,7 +173,8 @@ Map your app’s fonts via CSS variables:
 ```css
 :root {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 ```
 
@@ -180,14 +186,14 @@ With **Next.js `next/font`**, point the loader’s CSS variable at `--font-sans`
 
 `--radius` is the base (default `0.75rem`). The preset derives:
 
-| Utility | Formula |
-| --- | --- |
+| Utility       | Formula                     |
+| ------------- | --------------------------- |
 | `rounded-2xs` | `calc(var(--radius) - 8px)` |
-| `rounded-xs` | `calc(var(--radius) - 6px)` |
-| `rounded-sm` | `calc(var(--radius) - 4px)` |
-| `rounded-md` | `var(--radius)` |
-| `rounded-lg` | `calc(var(--radius) + 4px)` |
-| `rounded-xl` | `calc(var(--radius) + 6px)` |
+| `rounded-xs`  | `calc(var(--radius) - 6px)` |
+| `rounded-sm`  | `calc(var(--radius) - 4px)` |
+| `rounded-md`  | `var(--radius)`             |
+| `rounded-lg`  | `calc(var(--radius) + 4px)` |
+| `rounded-xl`  | `calc(var(--radius) + 6px)` |
 | `rounded-2xl` | `calc(var(--radius) + 8px)` |
 
 ---
@@ -206,7 +212,12 @@ import { Toaster as QuiToaster } from "@qpub/qui";
 
 export function Toaster() {
   const { theme = "system" } = useTheme();
-  return <QuiToaster theme={theme as "light" | "dark" | "system"} position="top-right" />;
+  return (
+    <QuiToaster
+      theme={theme as "light" | "dark" | "system"}
+      position="top-right"
+    />
+  );
 }
 ```
 
