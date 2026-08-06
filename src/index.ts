@@ -334,5 +334,11 @@ export type {
   InputVisualVariant,
 } from "./components/input/input.types";
 
+export { Textarea, textareaVariants } from "./components/textarea/textarea";
+export type {
+  TextareaPaletteColor,
+  TextareaVisualVariant,
+} from "./components/textarea/textarea.types";
+
 export { Label, labelVariants } from "./components/label/label";
 export type { LabelSize } from "./components/label/label.types";

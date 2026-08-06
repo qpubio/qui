@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0] - 2026-08-07
+
+### Added
+
+- `Textarea` form control (mirrors `Input`: variant/color/size, label, invalid/error/helper); Storybook stories under Components/Textarea
+
 ## [0.2.1] - 2026-08-05
 
 ### Fixed
@@ -37,6 +43,7 @@
 - npm Trusted Publishing (Node 24, `.npmrc` auth cleanup)
 - Client-boundary `"use client"` coverage for Next.js
 
+[0.3.0]: https://github.com/qpubio/qui/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/qpubio/qui/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/qpubio/qui/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/qpubio/qui/compare/646415f...v0.1.1
