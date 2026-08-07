@@ -342,3 +342,26 @@ export type {
 
 export { Label, labelVariants } from "./components/label/label";
 export type { LabelSize } from "./components/label/label.types";
+
+export {
+  CodeBlock,
+  Divider,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  InlineCode,
+  Li,
+  Ol,
+  P,
+  Quote,
+  TextLink,
+  Ul,
+  typographyClasses,
+} from "./components/typography/typography";
+export type {
+  TypographyProps,
+  TypographyVariant,
+} from "./components/typography/typography";

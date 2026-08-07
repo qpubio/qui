@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] - 2026-08-07
+
+### Added
+
+- `Typography` primitives (`H1`–`H6`, `P`, `Ul`, `Ol`, `Li`, `Quote`, `CodeBlock`, `InlineCode`, `TextLink`, `Divider`) plus exported `typographyClasses` for className-based consumers (e.g. rich-text theme maps)
+
 ## [0.3.0] - 2026-08-07
 
 ### Added
