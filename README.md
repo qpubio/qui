@@ -84,3 +84,7 @@ node node_modules/@qpub/qui/scripts/qui-migrate-imports.mjs --sync-peers --write
 Without **`--write`**, the script prints diffs only. **`--sync-peers`** merges any missing **`@qpub/qui` peers** into the app’s **`dependencies`**.
 
 ---
+
+## License
+
+This project is licensed under the [Apache License 2.0](./LICENSE).
