@@ -28,6 +28,7 @@ export {
 } from "./components/avatar/avatar";
 export { Badge, badgeVariants } from "./components/badge/badge";
 export { Checkbox, checkboxVariants } from "./components/checkbox/checkbox";
+export { Switch, switchVariants } from "./components/switch/switch";
 export { Spinner, type SpinnerProps } from "./components/spinner/spinner";
 export { Skeleton } from "./components/skeleton/skeleton";
 export { Separator, separatorVariants } from "./components/separator/separator";

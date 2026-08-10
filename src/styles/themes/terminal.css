@@ -178,7 +178,8 @@ html.dark [data-appearance="terminal"],
 }
 
 [data-appearance="terminal"] [data-slot="checkbox"],
-[data-appearance="terminal"] [data-slot="radio-group-item"] {
+[data-appearance="terminal"] [data-slot="radio-group-item"],
+[data-appearance="terminal"] [data-slot="switch"] {
   box-shadow: none;
 }
 
