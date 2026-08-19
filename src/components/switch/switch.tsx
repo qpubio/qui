@@ -51,7 +51,7 @@ const switchVariants = cva(
       },
     },
     defaultVariants: {
-      color: "primary",
+      color: "default",
       size: "md",
     },
   }
