@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.2] - 2026-08-20
+
+### Changed
+
+- Simplify `Switch` stories to rely on the new default color variant
+
 ## [0.5.1] - 2026-08-20
 
 ### Fixed
