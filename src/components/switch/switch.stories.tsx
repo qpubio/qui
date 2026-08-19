@@ -30,7 +30,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     defaultChecked: true,
-    color: "primary",
     "aria-label": "Airplane mode",
   },
 };
@@ -49,12 +48,7 @@ export const Colors: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-3 p-4">
       {colors.map((color) => (
-        <Switch
-          key={color}
-          color={color}
-          defaultChecked
-          aria-label={color}
-        />
+        <Switch key={color} color={color} defaultChecked aria-label={color} />
       ))}
     </div>
   ),
