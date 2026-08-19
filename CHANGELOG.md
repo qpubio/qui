@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.1] - 2026-08-20
+
+### Fixed
+
+- `Switch` default color variant now uses the neutral `default` track (`bg-foreground`) instead of `primary`
+
 ## [0.5.0] - 2026-08-11
 
 ### Added
