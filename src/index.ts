@@ -226,6 +226,20 @@ export {
   breadcrumbSeparatorVariants,
   breadcrumbVariants,
 } from "./components/breadcrumb/breadcrumb";
+export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  getPaginationItems,
+  paginationContentVariants,
+  paginationEllipsisVariants,
+  paginationLinkVariants,
+  paginationVariants,
+} from "./components/pagination/pagination";
 export { ScrollArea, ScrollBar } from "./components/scroll-area/scroll-area";
 export {
   ResizableHandle,

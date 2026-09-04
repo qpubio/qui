@@ -35,7 +35,7 @@ The codemod **does not** rewrite imports for these names; everything else in the
 
 When a file imports **`@/components/ui/<Name>`** or a sibling **`./<Name>`** from inside **`components/ui/`**, `<Name>` is rewritten to **`@qpub/qui`** if `<Name>` is one of:
 
-`Alert`, `Avatar`, `Badge`, `Breadcrumb`, `Button`, `Card`, `Checkbox`, `Code`, `Collapsible`, `Command`, `CopyButton`, `DateRangePicker`, `Dialog`, `Drawer`, `DropdownMenu`, `Input`, `Label`, `NavigationMenu`, `Popover`, `Progress`, `RadioGroup`, `Resizable`, `ScrollArea`, `SecretText`, `Select`, `Separator`, `Sheet`, `Sidebar`, `Skeleton`, `Spinner`, `Table`, `Tabs`, `Toaster`, `Toggle`, `ToggleGroup`, `Tooltip`
+`Alert`, `Avatar`, `Badge`, `Breadcrumb`, `Button`, `Card`, `Checkbox`, `Code`, `Collapsible`, `Command`, `CopyButton`, `DateRangePicker`, `Dialog`, `Drawer`, `DropdownMenu`, `Input`, `Label`, `NavigationMenu`, `Pagination`, `Popover`, `Progress`, `RadioGroup`, `Resizable`, `ScrollArea`, `SecretText`, `Select`, `Separator`, `Sheet`, `Sidebar`, `Skeleton`, `Spinner`, `Table`, `Tabs`, `Toaster`, `Toggle`, `ToggleGroup`, `Tooltip`
 
 The authoritative list lives in **`QUI_UI_STEMS`** in [`scripts/qui-migrate-imports.mjs`](scripts/qui-migrate-imports.mjs). Add a name there when you add a component to this package and want apps to migrate it.
 
@@ -130,7 +130,7 @@ When **`rg '@/components/ui/Button'`** (and each migrated stem) reports **only**
 
 **Remove** each of (if present):
 
-`Alert.tsx`, `Avatar.tsx`, `Badge.tsx`, `Breadcrumb.tsx`, `Button.tsx`, `Card.tsx`, `Checkbox.tsx`, `Code.tsx`, `Collapsible.tsx`, `Command.tsx`, `CopyButton.tsx`, `DateRangePicker.tsx`, `Dialog.tsx`, `Drawer.tsx`, `DropdownMenu.tsx`, `Input.tsx`, `Label.tsx`, `NavigationMenu.tsx`, `Popover.tsx`, `Progress.tsx`, `RadioGroup.tsx`, `Resizable.tsx`, `ScrollArea.tsx`, `SecretText.tsx`, `Select.tsx`, `Separator.tsx`, `Sheet.tsx`, `Sidebar.tsx`, `Skeleton.tsx`, `Spinner.tsx`, `Table.tsx`, `Tabs.tsx`, `Toaster.tsx`, `Toggle.tsx`, `ToggleGroup.tsx`, `Tooltip.tsx`
+`Alert.tsx`, `Avatar.tsx`, `Badge.tsx`, `Breadcrumb.tsx`, `Button.tsx`, `Card.tsx`, `Checkbox.tsx`, `Code.tsx`, `Collapsible.tsx`, `Command.tsx`, `CopyButton.tsx`, `DateRangePicker.tsx`, `Dialog.tsx`, `Drawer.tsx`, `DropdownMenu.tsx`, `Input.tsx`, `Label.tsx`, `NavigationMenu.tsx`, `Pagination.tsx`, `Popover.tsx`, `Progress.tsx`, `RadioGroup.tsx`, `Resizable.tsx`, `ScrollArea.tsx`, `SecretText.tsx`, `Select.tsx`, `Separator.tsx`, `Sheet.tsx`, `Sidebar.tsx`, `Skeleton.tsx`, `Spinner.tsx`, `Table.tsx`, `Tabs.tsx`, `Toaster.tsx`, `Toggle.tsx`, `ToggleGroup.tsx`, `Tooltip.tsx`
 
 **Keep** at minimum:
 

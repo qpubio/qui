@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0] - Unreleased
+
+### Added
+
+- `Pagination` compound primitives (`Pagination`, `PaginationContent`, `PaginationItem`, `PaginationLink`, `PaginationPrevious`, `PaginationNext`, `PaginationEllipsis`) with size cascade, `getPaginationItems` helper, and Storybook stories under Components/Pagination
+
 ## [0.5.2] - 2026-08-20
 
 ### Changed

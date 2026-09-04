@@ -40,6 +40,7 @@ const QUI_UI_STEMS = new Set([
   "Input",
   "Label",
   "NavigationMenu",
+  "Pagination",
   "Popover",
   "Progress",
   "RadioGroup",
