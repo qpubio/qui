@@ -1,0 +1,25 @@
+---
+description: Tailwind class conventions for apps using @qpub/qui (muted text and borders)
+alwaysApply: true
+---
+
+# QUI app styling (Tailwind)
+
+When writing or editing UI in apps that consume **@qpub/qui**, follow [docs/styling-apps.md](../docs/styling-apps.md).
+
+## Rules
+
+1. **Muted text:** use `text-muted`. Never use `text-muted-foreground` in app code.
+2. **Borders:** whenever you use `border`, `border-b`, `border-t`, etc., always add an explicit color (usually `border-border`). Do not use bare `border-b` or `border-border` without a border width/side.
+
+```tsx
+// good
+<p className="text-sm text-muted" />
+<div className="border border-border" />
+
+// bad
+<p className="text-sm text-muted-foreground" />
+<header className="border-b" />
+```
+
+QUI components in `qui/src` already use `text-muted` and explicit border colors; match that in dashboards and other consumers.

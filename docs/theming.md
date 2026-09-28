@@ -2,6 +2,8 @@
 
 `@qpub/qui` uses **CSS custom properties** as the single source of truth for colors, radius, and fonts. Components consume tokens through Tailwind utilities (`bg-primary`, `text-muted`, …), not hard-coded values.
 
+**Consuming apps:** class-name conventions for muted text and borders (avoid shadcn copy-paste pitfalls) — see **[styling-apps.md](./styling-apps.md)**.
+
 ---
 
 ## Setup
